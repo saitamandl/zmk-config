@@ -14,6 +14,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: sofle_left
+    shield: saiSofleV2_left
   - board: nice_nano_v2
-    shield: sofle_right
+    shield: saiSofleV2_right
