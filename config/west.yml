@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: saitama
+      url-base: https://github.com/saitamandl
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: saitama
+      revision: exp/feats
       import: app/west.yml
   self:
     path: config
