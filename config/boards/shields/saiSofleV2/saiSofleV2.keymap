@@ -21,6 +21,7 @@
         lss_cw: left_sticky_shift_capsword{
             compatible = "zmk,behavior-tap-dance";
             label = "left_sticky_shift_capsword";
+            #binding-cells = <0>;
             tapping-term-ms =<200>;
             bindings =<&sk LSHFT>, <&caps_word>;
         };
@@ -31,6 +32,7 @@
         rss_cw: right_sticky_shift_capsword{
             compatible = "zmk,behavior-tap-dance";
             label = "right_sticky_shift_capsword";
+            #binding-cells = <0>;
             tapping-term-ms =<200>;
             bindings =<&sk RSHFT>, <&caps_word>;
         };
@@ -41,6 +43,7 @@
         bspc_del: backspace_delete{
             compatible = "zmk,behavior-mod-morph";
             label = "backspace_delete";
+            #binding-cells = <0>;
             tapping-term-ms =<200>;
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
