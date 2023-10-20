@@ -11,31 +11,41 @@
 #define RAISE 2
 #define ADJUST 3
 
-
-/**
- * Custom Behaviors
- */
-
-// tap: sticky left shift | double tap: capsword
-ZMK_BEHAVIOR(lss_cw, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&sk LSHFT>, <&caps_word>;
-)
-
-// tap: sticky right shift | double tap: capsword
-ZMK_BEHAVIOR(rss_cw, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&sk RSHFT>, <&caps_word>;
-)
-
-// tap: backspace | shift + tap: delete
-ZMK_BEHAVIOR(bspc_del, mod_morph,
-    bindings = <&kp BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
-
 / {
+
+    /**
+    * Custom Behaviors
+    */
+    // tap: sticky left shift | double tap: capsword
+    behaviors {
+        lss_cw: left_sticky_shift_capsword{
+            compatible = "zmk,behavior-tap-dance";
+            label = "left_sticky_shift_capsword";
+            tapping-term-ms =<200>;
+            bindings =<&sk LSHFT>, <&caps_word>;
+        };
+    };
+
+    // tap: sticky right shift | double tap: capsword
+    behaviors {
+        rss_cw: right_sticky_shift_capsword{
+            compatible = "zmk,behavior-tap-dance";
+            label = "right_sticky_shift_capsword";
+            tapping-term-ms =<200>;
+            bindings =<&sk RSHFT>, <&caps_word>;
+        };
+    };
+
+    // tap: backspace | shift + tap: delete
+    behaviors {
+        bspc_del: backspace_delete{
+            compatible = "zmk,behavior-mod-morph";
+            label = "backspace_delete";
+            tapping-term-ms =<200>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
