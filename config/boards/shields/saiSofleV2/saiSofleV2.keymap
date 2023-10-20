@@ -20,7 +20,6 @@
     behaviors {
         lss_cw: left_sticky_shift_capsword{
             compatible = "zmk,behavior-tap-dance";
-            label = "left_sticky_shift_capsword";
             tapping-term-ms =<200>;
             bindings =<&sk LSHFT>, <&caps_word>;
         };
@@ -30,7 +29,6 @@
     behaviors {
         rss_cw: right_sticky_shift_capsword{
             compatible = "zmk,behavior-tap-dance";
-            label = "right_sticky_shift_capsword";
             tapping-term-ms =<200>;
             bindings =<&sk RSHFT>, <&caps_word>;
         };
@@ -40,7 +38,6 @@
     behaviors {
         bspc_del: backspace_delete{
             compatible = "zmk,behavior-mod-morph";
-            label = "backspace_delete";
             tapping-term-ms =<200>;
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -69,9 +66,9 @@
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                      &kp ESC       &kp A         &kp S         &kp D         &kp F         &kp G                                          &kp H           &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮    ╭─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &lss_cw     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &rss_cw
+                     &lss_cw       &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &rss_cw
                 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                                 &kp LGUI      &kp LALT      &kp LCTRL    &lt FUNC RET  &kp RET            &kp SPACE    &lt RAISE SPACE  &bspc_del      &kp RCTRL     &kp RALT
+                                                 &kp LGUI      &kp LALT      &kp LCTRL     &lt FUNC RET  &kp RET            &kp SPACE    &lt RAISE SPACE  &bspc_del      &kp RCTRL     &kp RALT
                 //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰─────────────┴───────────────┴─────────────┴─────────────┴─────────────╯
             >;
 
@@ -89,7 +86,7 @@
 //                // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //                     &kp A         &kp S         &kp D         &kp F         &kp G         &kp ESC                                        &kp SQT       &kp H         &kp J         &kp K         &kp L         &kp SEMI
 //                // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                     &kp Z         &kp X         &kp C         &kp V         &kp B         &lss_cw     &kp C_MUTE         &none         &rss_cw     &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
+//                     &kp Z         &kp X         &kp C         &kp V         &kp B         &lss_cw       &kp C_MUTE         &none         &rss_cw     &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
 //                // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                                                 &kp LGUI      &kp LALT      &kp LCTRL     &mo FUNC     &kp RET            &kp SPACE     &mo RAISE     &kp RCTRL     &kp RALT      &bspc_del
 //                //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
