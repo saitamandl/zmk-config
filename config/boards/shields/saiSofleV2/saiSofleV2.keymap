@@ -11,6 +11,30 @@
 #define RAISE 2
 #define ADJUST 3
 
+
+/**
+ * Custom Behaviors
+ */
+
+// tap: sticky left shift | double tap: capsword
+ZMK_BEHAVIOR(lss_cw, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&sk LSHFT>, <&caps_word>;
+)
+
+// tap: sticky right shift | double tap: capsword
+ZMK_BEHAVIOR(rss_cw, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&sk RSHFT>, <&caps_word>;
+)
+
+// tap: backspace | shift + tap: delete
+ZMK_BEHAVIOR(bspc_del, mod_morph,
+    bindings = <&kp BSPC>, <&kp DEL>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+
 / {
 
    // Activate ADJUST layer by pressing raise and lower
@@ -35,9 +59,9 @@
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                      &kp ESC       &kp A         &kp S         &kp D         &kp F         &kp G                                          &kp H           &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮    ╭─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp RSHFT
+                     &lss_cw     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &rss_cw
                 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                                 &kp LGUI      &kp LALT      &kp LCTRL    &lt FUNC RET  &kp RET            &kp SPACE    &lt RAISE SPACE  &kp BSPC      &kp RCTRL     &kp RALT
+                                                 &kp LGUI      &kp LALT      &kp LCTRL    &lt FUNC RET  &kp RET            &kp SPACE    &lt RAISE SPACE  &bspc_del      &kp RCTRL     &kp RALT
                 //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰─────────────┴───────────────┴─────────────┴─────────────┴─────────────╯
             >;
 
@@ -55,9 +79,9 @@
 //                // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //                     &kp A         &kp S         &kp D         &kp F         &kp G         &kp ESC                                        &kp SQT       &kp H         &kp J         &kp K         &kp L         &kp SEMI
 //                // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp LSHFT     &kp C_MUTE         &none         &kp RSHFT     &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
+//                     &kp Z         &kp X         &kp C         &kp V         &kp B         &lss_cw     &kp C_MUTE         &none         &rss_cw     &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
 //                // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-//                                                 &kp LGUI      &kp LALT      &kp LCTRL     &mo FUNC     &kp RET            &kp SPACE     &mo RAISE     &kp RCTRL     &kp RALT      &kp BSPC
+//                                                 &kp LGUI      &kp LALT      &kp LCTRL     &mo FUNC     &kp RET            &kp SPACE     &mo RAISE     &kp RCTRL     &kp RALT      &bspc_del
 //                //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 //            >;
 //
@@ -114,7 +138,7 @@
             bindings = <
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &trans    &trans    &trans   &trans    &trans  &trans
                 &trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                          &kp PG_UP &trans    &kp UP   &trans    &kp N0  &trans
-                &trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                        &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp DEL &kp BSPC
+                &trans     &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp CLCK                        &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp DEL &bspc_del
                 &trans     &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans        &trans    &trans  &trans    &trans    &trans   &trans    &trans  &trans
                                         &trans       &trans       &trans       &trans        &trans    &trans  &trans    &trans    &trans   &trans
             >;
