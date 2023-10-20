@@ -44,7 +44,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "backspace_delete";
             #binding-cells = <0>;
-            tapping-term-ms =<200>;
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
