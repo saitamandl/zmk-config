@@ -15,7 +15,7 @@
 #define FNSYM 1
 #define GER 2
 #define NAV 3
-#define ADJUST 4
+#define KBFUNC 4
 
 // euro sign
 ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
@@ -63,7 +63,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
     behaviors {
         win_shtdwn: windows_shutdown{
             compatible = "zmk,behavior-macro";
-            label = "Windows_shutdown";
+            label = "windows_shutdown";
             #binding-cells = <0>;
             wait-ms = <100>;
             tap-ms = <5>;
@@ -86,9 +86,9 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        adjust_layer {
+        kbfunc_layer {
             if-layers = <FNSYM GER>;
-            then-layer = <ADJUST>;
+            then-layer = <KBFUNC>;
         };
     };
 
@@ -171,21 +171,23 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        adjust_layer {
-            //  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //  | BTCLR           |  BT1          |  BT2          |   BT3         |   BT4         |   BT5          |                            |     |     |     |     |     |    |
-            //  | EXTPWR          | RGB_HUD       | RGB_HUI       | RGB_SAD       | RGB_SAI       | RGB_EFF        |                            |     |     |     |     |     |    |
-            //  |                 | RGB_BRD       | RGB_BRI       |               |               |                |                            |     |     |     |     |     |    |
-            //  |                 |               |               |               |               |                | RGB_TOG      |  \\  |      |     |     |     |     |     |    |
-            //                                    |               |               |               |                |              |  \\  |      |     |     |     |     |
-            label = "adjust";
+        kbfunc_layer {
+        label = "kbfunc";
             bindings = <
-                &bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                  &none &none &none &none &none &none
-                &ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                               &none &none &none &none &none &none
-                &none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                         &none &none &none &none &none &none
-                &none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG       &none  &none &none &none &none &none &none
-                                                  &none           &none           &none           &none            &none                 &none  &none &none &none &none
+                // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
+                     &none         &none             &none            &none            &none            &none                                             &none            &none         &none             &none         &none         &none
+                // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+                     &none         &bt BT_CLR        &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3                                      &bt BT_SEL 4     &none         &none             &none         &none          &none
+                // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+                     &none        &ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI                                   &rgb_ug RGB_EFF  &none         &none             &none         &none         &none
+                // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+                     &none         &none             &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG  &none            &none              &none         &none            &none         &none             &none         &none         &none
+                // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
+                                                     &none            &none            &none            &none            &none              &none         &none            &none          &none             &none
+                //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
     };
