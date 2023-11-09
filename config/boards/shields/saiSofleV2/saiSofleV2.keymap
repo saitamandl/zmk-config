@@ -25,6 +25,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
     /**
     * Custom Behaviors
     */
+    // tap-dance
     // tap: sticky left shift | double tap: capsword
     behaviors {
         lss_cw: left_sticky_shift_capsword{
@@ -47,6 +48,18 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         };
     };
 
+    // hold: FNSYM layer | tap: RET | double tap: NAV
+    behaviors {
+        fnsm_ret_nav: lt_fnsym_ret_tog_nav{
+            compatible = "zmk,behavior-tap-dance";
+            label = "right_sticky_shift_capsword";
+            #binding-cells = <0>;
+            tapping-term-ms =<200>;
+            bindings =<&lt FNSYM RET>, <&tog NAV>;
+        };
+    };
+
+    // mod-morph
     // tap: backspace | shift + tap: delete
     behaviors {
         bspc_del: backspace_delete{
@@ -59,6 +72,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
     };
 
 
+    // macro
     // windows shut-down
     behaviors {
         win_shtdwn: windows_shutdown{
@@ -83,6 +97,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         };
     };
 
+    // layers
    // Activate keyboard function layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -179,9 +194,9 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
                 // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
                      &none         &bt BT_CLR        &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3                                      &bt BT_SEL 4     &none         &none             &none         &none          &none
                 // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-                     &none        &ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI                                   &rgb_ug RGB_EFF  &none         &none             &none         &none         &none
+                     ______       &ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI                                   &rgb_ug RGB_EFF  &none         &none             &none         &none         &none
                 // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-                     &none         &none             &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG  &none            &none              &none         &none            &none         &none             &none         &none         &none
+                     ______        &none             &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG  &none            ______             ______        &none            &none         &none             &none         &none         &none
                 // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
                                                      &none            &none            &none            &none            &none              &none         &none            &none         &none             &none
                 //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
