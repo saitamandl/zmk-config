@@ -58,6 +58,31 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         };
     };
 
+
+    // windows shut-down
+    behaviors {
+        win_shtdwn: windows_shutdown{
+            compatible = "zmk,behavior-macro";
+            label = "Windows_shutdown";
+            #binding-cells = <0>;
+            wait-ms = <100>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X) &kp U &kp U>;
+        };
+    };
+
+    // windows restart
+    behaviors {
+        win_restrt: windows_restart{
+            compatible = "zmk,behavior-macro";
+            label = "windows_restart";
+            #binding-cells = <0>;
+            wait-ms = <100>;
+            tap-ms = <5>;
+            bindings = <&kp LG(X) &kp U &kp R>;
+        };
+    };
+
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
