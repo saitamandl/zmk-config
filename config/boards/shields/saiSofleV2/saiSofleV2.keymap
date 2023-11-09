@@ -15,7 +15,7 @@
 #define FNSYM 1
 #define GER 2
 #define NAV 3
-#define KBFUNC 4
+#define KBFN 4
 
 // euro sign
 ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
@@ -83,12 +83,12 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         };
     };
 
-   // Activate ADJUST layer by pressing raise and lower
+   // Activate keyboard function layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        kbfunc_layer {
+        nav_layer {
             if-layers = <FNSYM GER>;
-            then-layer = <KBFUNC>;
+            then-layer = <NAV>;
         };
     };
 
@@ -105,7 +105,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                      &gresc        &kp A         &kp S         &kp D         &kp F         &kp G                                          &kp H           &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮    ╭─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                     &tog NAV      &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &none
+                     &tog KBFN     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp C_MUTE         &none         &kp N           &kp M         &kp COMMA     &kp DOT       &kp FSLH      &none
                 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼───────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                                  &kp LALT      &kp LGUI      &kp LCTRL     &lss_cw      &lt GER SPACE      &lt FNSYM RET  &rss_cw         &kp RCTRL     &bspc_del     &kp RALT
                 //                             ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯    ╰─────────────┴───────────────┴─────────────┴─────────────┴─────────────╯
@@ -171,8 +171,8 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        kbfunc_layer {
-        label = "kbfunc";
+        kbfn_layer {
+        label = "kbfn";
             bindings = <
                 // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
                      &none         &none             &none            &none            &none            &none                                             &none            &none         &none             &none         &none         &none
