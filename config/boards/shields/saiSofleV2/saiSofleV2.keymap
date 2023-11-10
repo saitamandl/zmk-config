@@ -59,6 +59,17 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         };
     };
 
+    // hold: GER layer | tap: SPACE | double tap: KBFN
+    behaviors {
+        ger_spc_kbfn: lt_ger_space_tog_kbfn{
+            compatible = "zmk,behavior-tap-dance";
+            label = "ger_space_kbfn";
+            #binding-cells = <0>;
+            tapping-term-ms =<200>;
+            bindings =<&lt GER SPACE>, <&tog KBFN>;
+        };
+    };
+
     // mod-morph
     // tap: backspace | shift + tap: delete
     behaviors {
