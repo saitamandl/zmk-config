@@ -52,7 +52,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
     behaviors {
         fnsm_ret_nav: lt_fnsym_ret_tog_nav{
             compatible = "zmk,behavior-tap-dance";
-            label = "right_sticky_shift_capsword";
+            label = "fnsym_ret_nav";
             #binding-cells = <0>;
             tapping-term-ms =<200>;
             bindings =<&lt FNSYM RET>, <&tog NAV>;
