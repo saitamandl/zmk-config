@@ -24,3 +24,8 @@ delay-ms = <0>;                   // 10
 #define M_SCROLL_D &msc SCRL_DOWN
 #define M_SCROLL_L &msc SCRL_LEFT
 #define M_SCROLL_R &msc SCRL_RIGHT
+#define M_BUTTON_L &mkp LCLK
+#define M_BUTTON_R &mkp RCLK
+#define M_BUTTON_M &mkp MCLK
+#define M_BUTTON_4 &mkp MB4
+#define M_BUTTON_5 &mkp MB5
