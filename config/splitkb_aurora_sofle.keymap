@@ -11,10 +11,10 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 
-#include "zmk-nodefree-config/helper.h"
-#include "zmk-nodefree-config/mouse.dtsi"
-#include "zmk-nodefree-config/international_chars/currency.dtsi"
-#include "zmk-nodefree-config/international_chars/german.dtsi"
+#include "zmk-config-helper/helper.h"
+#include "zmk-config-helper/mouse.dtsi"
+#include "zmk-config-helper/international_chars/currency.dtsi"
+#include "zmk-config-helper/international_chars/german.dtsi"
 
 #define ______ &trans
 
