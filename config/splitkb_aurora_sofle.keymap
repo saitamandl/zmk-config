@@ -11,9 +11,9 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #include "mouse.dtsi"
-#include "zmk-config-helpers/helper.h"
-#include "zmk-config-helpers/international_chars/currency.dtsi"
-#include "zmk-config-helpers/international_chars/german.dtsi"
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
+#include "zmk-helpers/unicode-chars/german.dtsi"
 
 #define ______ &trans
 
