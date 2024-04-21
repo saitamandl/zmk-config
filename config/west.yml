@@ -11,7 +11,7 @@ manifest:
       remote: urob
       revision: main
       import: app/west.yml
-    - name: zmk-config-helpers
+    - name: zmk-helpers
       remote: saitamandl
       revision: v2
   self:
