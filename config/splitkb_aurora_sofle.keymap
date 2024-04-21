@@ -16,6 +16,8 @@
 #include "zmk-helpers/unicode-chars/german.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 
+/** Global settings */
+
 #define _____ &trans
 
 #define BASE 0
@@ -24,7 +26,9 @@
 #define NAV 3
 //#define KBSYS 5
 
-//// reuse basic mod-morph scheme
+#define QUICK_TAP_MS 175
+
+/** reuse basic mod-morph scheme */
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
