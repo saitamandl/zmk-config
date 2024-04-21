@@ -73,12 +73,12 @@ ZMK_BEHAVIOR(smart_shift, tap_dance,
 //)
 
 /**
- * hold: FNSYM layer | tap: RET | double tap: NAV
+ * hold: NUMSYM layer | tap: RET | double tap: NAV
  */
-ZMK_BEHAVIOR(numsym_ret_nav, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&lt NUMSYM RET>, <&tog NAV>;
-)
+//ZMK_BEHAVIOR(numsym_ret_nav, tap_dance,
+//    tapping-term-ms = <200>;
+//    bindings = <&lt NUMSYM RET>, <&tog NAV>;
+//)
 
 ///**
 // * hold: GER layer | tap: SPACE | double tap: KBFN
