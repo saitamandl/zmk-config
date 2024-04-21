@@ -4,10 +4,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: saitamandl
+      url-base: https://github.com/saitamandl
   projects:
     - name: zmk
       remote: urob
       revision: main
       import: app/west.yml
+    - name: zmk-config-helpers
+      remote: saitamandl
+      revision: v2
   self:
     path: config
