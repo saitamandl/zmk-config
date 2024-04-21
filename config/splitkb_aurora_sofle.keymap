@@ -88,7 +88,7 @@ ZMK_BEHAVIOR(bs_del_num, mod_morph,
  * macro
  * windows shut-down WIN + X + U + U
  */
-ZMK_BEHAVIOR(win_sleep, macro,
+ZMK_BEHAVIOR(win_shutdown, macro,
     #binding-cells = <0>;
     wait-ms = <100>;
     tap-ms = <5>;
@@ -99,7 +99,7 @@ ZMK_BEHAVIOR(win_sleep, macro,
  * macro
  * windows restart WIN + X + U + R
  */
-ZMK_BEHAVIOR(win_sleep, macro,
+ZMK_BEHAVIOR(win_restart, macro,
     #binding-cells = <0>;
     wait-ms = <100>;
     tap-ms = <5>;
