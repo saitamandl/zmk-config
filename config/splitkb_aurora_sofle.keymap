@@ -27,6 +27,10 @@
 //#define KBSYS 5
 
 #define QUICK_TAP_MS 175
+#define HRM_QUICK_TAP_MS 125
+
+#define TAPPING_TERM_MS 200
+#define HRM_TAPPING_TERM_MS 280
 
 /** reuse basic mod-morph scheme */
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
@@ -43,8 +47,8 @@
  */
 ZMK_BEHAVIOR(hrm, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
+    tapping-term-ms = <HRM_TAPPING_TERM_MS>;
+    quick-tap-ms = <HRM_QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
 )
 
@@ -62,7 +66,7 @@ ZMK_BEHAVIOR(smart_shift, tap_dance,
  */
 ZMK_BEHAVIOR(smart_space, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&spc_morph>;
 )
@@ -87,7 +91,7 @@ ZMK_BEHAVIOR(dot_spc, macro,
  * hold: FNGER | tap: bspc_del
  */
 ZMK_BEHAVIOR(bspc_del_fn_ger, tap_dance,
-    tapping-term-ms = <200>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&mo FNGER>, <&bspc_del>;
 )
 
