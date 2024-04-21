@@ -80,13 +80,13 @@ ZMK_BEHAVIOR(smart_shift, tap_dance,
 //    bindings = <&lt NUMSYM RET>, <&tog NAV>;
 //)
 
-///**
-// * hold: GER layer | tap: SPACE | double tap: KBFN
-// */
-//ZMK_BEHAVIOR(ger_spc_kbfn, tap_dance,
-//    tapping-term-ms = <200>;
-//    bindings = <&lt GER SPACE>, <&tog KBFN>;
-//)
+/**
+ * tap: bspc_del | double tap: FN
+ */
+ZMK_BEHAVIOR(bspc_del_fn, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&bspc_del>, <&mo FN>;
+)
 
 /**
  * mod-morph
@@ -136,7 +136,7 @@ ZMK_LAYER_3(base_layer,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────╮    ╭─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          &none         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp C_MUTE            &kp C_MUTE    &kp N                &kp M          &kp COMMA      &kp DOT       &none            &none
     // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────┤    ├─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     &none         &none         &none         &bspc_del          &kp RET               &smart_shift  &bspc_del   &none          &none          &none
+                                     &none         &none         &none         &bspc_del_fn       &lt NUMSYM RET        &smart_shift  &none                &none          &none          &none
     //                             ╰─────────────┴─────────────┴─────────────┴──────────────────┴────────────────╯    ╰─────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
