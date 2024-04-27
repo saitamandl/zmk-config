@@ -33,10 +33,10 @@
 
 /** Layer Names */
 #define BASE    0
-#define NUM  1
-#define FNG   2
+#define NUM     1
+#define FNG     2
 #define NAV     3
-#define MOUSE   4
+#define MOUS    4
 #define SYS     5
 
 /**-------------------------------- Custom Behaviors --------------------------------*/
@@ -139,21 +139,13 @@ ZMK_BEHAVIOR(dot_spc, macro,
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
 
-/** three tap */
-//ZMK_BEHAVIOR(smpl3tap, tap_dance,
-//    tapping-term-ms = <TAPPING_TERM_MS>;
-//    bindings = <&kp>, <&kp>, <&kp>;
-//)
-
 /** toggle layers */
-//ZMK_BEHAVIOR(smpl3tog, tap_dance,
-//    tapping-term-ms = <TAPPING_TERM_MS>;
-//    bindings = <&tog>, <&tog>, <&tog>;
-//)
+ZMK_BEHAVIOR(layer_dance, tap_dance,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&tog NUM>, <&tog FNG>, <&tog NAV>, <&tog MOUS>, <&tog SYS> ;
+)
 
-/**
- * hold: FNG | tap: bspc_del
- */
+/** hold: FNG | tap: bspc_del */
 ZMK_BEHAVIOR(bspc_del_fng, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&mo FNG>, <&bspc_del>;
@@ -216,7 +208,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────╮    ╭─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp C_MUTE            &kp C_MUTE    &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
     // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────┤    ├─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX         XXXXX         &bspc_del_fng      &lt NUM RET        &kp BSPC      &smart_space NAV 0   XXXXX          XXXXX          XXXXX
+                                     XXXXX         XXXXX         XXXXX         &bspc_del_fng      &lt NUM RET           &layer_dance   &smart_space NAV 0   XXXXX          XXXXX          XXXXX
     //                             ╰─────────────┴─────────────┴─────────────┴──────────────────┴────────────────╯    ╰─────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
