@@ -128,7 +128,7 @@ ZMK_BEHAVIOR(smart_space, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&to>, <&spc_morph>;
+    bindings = <&tog>, <&spc_morph>;
 )
 
 SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
@@ -146,17 +146,17 @@ ZMK_BEHAVIOR(dot_spc, macro,
 //)
 
 /** toggle layers */
-ZMK_BEHAVIOR(smpl3tog, tap_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&tog>, <&tog>;
-)
+//ZMK_BEHAVIOR(smpl3tog, tap_dance,
+//    tapping-term-ms = <TAPPING_TERM_MS>;
+//    bindings = <&tog>, <&tog>;
+//)
 
 /**
  * hold:  toggle layer | tap: bspc_del
  */
 ZMK_BEHAVIOR(bspc_del_lyr, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&to>, <&bspc_del>;
+    bindings = <&tog>, <&bspc_del>;
 )
 
 /**
@@ -216,7 +216,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────────────┼────────────────╮    ╭───────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp C_MUTE            &kp C_MUTE              &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
     // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────────────┼────────────────┤    ├───────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX         XXXXX         &bspc_del_lyr FNG 0   &lt NUM RET           &smpl3tog NUM FNG       &smart_space NAV 0   XXXXX          XXXXX          XXXXX
+                                     XXXXX         XXXXX         XXXXX         &bspc_del_lyr FNG 0   &lt NUM RET           XXXXX                   &smart_space NAV 0   XXXXX          XXXXX          XXXXX
     //                             ╰─────────────┴─────────────┴─────────────┴─────────────────────┴────────────────╯    ╰───────────────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
