@@ -24,6 +24,12 @@
 #define MT_CORE_QUICK_TAP_MS 220
 #define HRM_QUICK_TAP_MS 125
 #define HRM_TAPPING_TERM_MS 280
+#define WAIT_MS 100
+#define TAP_MS 5
+
+/** RGB */
+#define UNDER_GLOW_PER_KEY_LED_COUNT = 35;
+#define PER_KEY_LED_COUNT = 29;
 
 /** Layer Names */
 #define BASE 0
@@ -59,12 +65,12 @@
 /** long-tap action on hold, short-tap action on all interrupts */
 #define MT_CORE \
     flavor = "tap-preferred"; \
-    tapping-term-ms = MT_CORE_TAPPING_TERM_MS; \
-    quick-tap-ms = MT_CORE_QUICK_TAP_MS; \
+    tapping-term-ms = <MT_CORE_TAPPING_TERM_MS>; \
+    quick-tap-ms = <MT_CORE_QUICK_TAP_MS>; \
     hold-trigger-key-positions = <0>;
 
-&mt { MT_CORE };
 
+&mt { MT_CORE };
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
@@ -112,13 +118,13 @@ ZMK_BEHAVIOR(dot_spc, macro,
 
 /** hold: NUMSYM layer | tap: RET | double tap: NAV */
 //ZMK_BEHAVIOR(numsym_ret_nav, tap_dance,
-//    tapping-term-ms = TAPPING_TERM_MS;
+//    tapping-term-ms = <TAPPING_TERM_MS>;
 //    bindings = <&lt NUMSYM RET>, <&tog NAV>;
 //)
 
 /** three tap */
 //ZMK_BEHAVIOR(smpl3tap, tap_dance,
-//    tapping-term-ms = TAPPING_TERM_MS;
+//    tapping-term-ms = <TAPPING_TERM_MS>;
 //    bindings = <&kp>, <&kp>, <&kp>;
 //)
 
@@ -158,15 +164,15 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
  */
  /** windows shut-down WIN + X + U + U */
 ZMK_BEHAVIOR(win_shutdown, macro,
-    wait-ms = <100>;
-    tap-ms = <5>;
+    wait-ms = <WAIT_MS>;
+    tap-ms = <TAP_MS>;
     bindings = <&kp LG(X) &kp U &kp U>;
 )
 
 /** windows restart WIN + X + U + R */
 ZMK_BEHAVIOR(win_restart, macro,
-    wait-ms = <100>;
-    tap-ms = <5>;
+    wait-ms = <WAIT_MS>;
+    tap-ms = <TAP_MS>;
     bindings = <&kp LG(X) &kp U &kp R>;
 )
 
@@ -268,9 +274,7 @@ ZMK_LAYER_3(nav,
 
 /**--------------------------------------- RGB-Led Strips Enable ---------------------------------------*/
 &led_strip {
-//    chain-length = <6>;
-    // chain-length = <35>; // Uncomment if using both per-key and underglow LEDs
-     chain-length = <29>; // Uncomment if using only per-key LEDs.
+     chain-length = <PER_KEY_LED_COUNT>;
 };
 
 /// {
