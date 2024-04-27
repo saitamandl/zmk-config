@@ -153,9 +153,9 @@ ZMK_BEHAVIOR(dot_spc, macro,
 /**
  * hold: FNGER | tap: bspc_del
  */
-ZMK_BEHAVIOR(bspc_del_fn_ger, tap_dance,
+ZMK_BEHAVIOR(bspc_del_lyr, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&mo FNGER>, <&bspc_del>;
+    bindings = <&mo>, <&bspc_del>;
 )
 
 /**
@@ -215,7 +215,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────╮    ╭─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp C_MUTE            &kp C_MUTE    &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
     // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────┤    ├─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX         XXXXX         &bspc_del_fn_ger   &lt NUMSYM RET        &kp BSPC      &smart_space NAV 0   XXXXX          XXXXX          XXXXX
+                                     XXXXX         XXXXX         XXXXX         &bspc_del_lyr FNGER 0   &lt NUMSYM RET        &kp BSPC      &smart_space NAV 0   XXXXX          XXXXX          XXXXX
     //                             ╰─────────────┴─────────────┴─────────────┴──────────────────┴────────────────╯    ╰─────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
