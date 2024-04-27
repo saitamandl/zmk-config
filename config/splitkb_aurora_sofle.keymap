@@ -123,12 +123,12 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 /**
  * tap-dance
  */
-/** tap: space | shift + tap: dot -> space -> sticky shift | hold: toggle to layer */
+/** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
 ZMK_BEHAVIOR(smart_space, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&tog>, <&spc_morph>;
+    bindings = <&mo>, <&spc_morph>;
 )
 
 SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
@@ -152,11 +152,11 @@ ZMK_BEHAVIOR(dot_spc, macro,
 //)
 
 /**
- * hold:  toggle layer | tap: bspc_del
+ * hold:  layer | tap: bspc_del
  */
 ZMK_BEHAVIOR(bspc_del_lyr, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&tog>, <&bspc_del>;
+    bindings = <&mo>, <&bspc_del>;
 )
 
 /**
