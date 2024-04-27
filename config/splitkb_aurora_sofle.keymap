@@ -93,12 +93,6 @@ ZMK_BEHAVIOR(hrm, hold_tap,
 /**
  * tap-dance
  */
-/** tap: sticky left shift | double tap: capsword */
-//ZMK_BEHAVIOR(smart_shift, tap_dance,
-//    tapping-term-ms = TAPPING_TERM_MS;
-//    bindings = <&sk LSHFT>, <&caps_word>;
-//)
-
 /** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
 ZMK_BEHAVIOR(smart_space, hold_tap,
     flavor = "balanced";
@@ -143,6 +137,12 @@ ZMK_BEHAVIOR(bspc_del, mod_morph,
     bindings = <&kp BSPC>, <&kp DEL>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
     keep-mods = <MOD_RSFT>;
+)
+
+/** tap: sticky left shift | double tap: capsword */
+ZMK_BEHAVIOR(smart_shift, mod_morph,
+        bindings = <&sk LSHFT>, <&caps_word>;
+mods = <(MOD_LSFT)>;
 )
 
 /**
