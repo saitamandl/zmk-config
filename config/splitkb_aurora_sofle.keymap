@@ -63,6 +63,8 @@
     quick-tap-ms = MT_CORE_QUICK_TAP_MS; \
     hold-trigger-key-positions = <0>;
 
+&mt { MT_CORE };
+
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
@@ -84,8 +86,6 @@ ZMK_BEHAVIOR(hrm, hold_tap,
 )
 
 /** modified home  used for  long tap left -> beginning of line*/
-&mt { MT_CORE };
-
 ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
 
 /** modified end  used for  long tap right -> end of line*/
@@ -234,7 +234,7 @@ ZMK_LAYER_3(nav,
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          _____   _____      _____      _____       _____       _____                                    &kp PG_UP     NAV_BSPC        NAV_UP            NAV_DEL         &kp PSCRN      _____
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   _____                                    &kp PG_DN     _____           NAV_DOWN          _____           _____          _____
+         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   _____                                    &kp PG_DN     NAV_LEFT        NAV_DOWN          NAV_RIGHT       _____          _____
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          _____   _____      _____      _____       _____       _____   _____              _____         _____         _____           _____             _____           &kp INS        _____
     // ╰───────┴──────────┼──────────┼───────────┼───────────┼───────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
