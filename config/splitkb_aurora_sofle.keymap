@@ -63,6 +63,7 @@
     quick-tap-ms = MT_CORE_QUICK_TAP_MS; \
     hold-trigger-key-positions = <0>;
 
+&mt { MT_CORE };
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
@@ -147,7 +148,6 @@ ZMK_BEHAVIOR(bspc_del, mod_morph,
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
-&mt { MT_CORE };
 MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
