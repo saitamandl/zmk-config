@@ -18,39 +18,58 @@
 
 /** Global settings */
 /** Constants */
-#define QUICK_TAP_MS 175
-#define TAPPING_TERM_MS 200
-#define MT_CORE_TAPPING_TERM_MS 220
-#define MT_CORE_QUICK_TAP_MS 220
-#define HRM_QUICK_TAP_MS 125
-#define HRM_TAPPING_TERM_MS 280
-#define WAIT_MS 100
-#define TAP_MS 5
+#define QUICK_TAP_MS                175
+#define TAPPING_TERM_MS             200
+#define MT_CORE_TAPPING_TERM_MS     220
+#define MT_CORE_QUICK_TAP_MS        220
+#define HRM_QUICK_TAP_MS            125
+#define HRM_TAPPING_TERM_MS         280
+#define WAIT_MS                     100
+#define TAP_MS                      5
 
 /** RGB */
-#define UNDER_GLOW_PER_KEY_LED_COUNT 35
-#define PER_KEY_LED_COUNT 29
+#define UNDER_GLOW_PER_KEY_LED_COUNT    35
+#define PER_KEY_LED_COUNT               29
+
+/** RGB functions */
+#define LED_TOG     &rgb_ug RGB_TOG
+#define BRI_INC     &rgb_ug RGB_BRI     // Brightness increase
+#define BRI_DEC     &rgb_ug RGB_BRD     // Brightness decrease
+#define HUE_INC     &rgb_ug RGB_HUI
+#define HUE_DEC     &rgb_ug RGB_HUD
+#define SAT_INC     &rgb_ug RGB_SAI     // Saturation Increase
+#define SAT_DEC     &rgb_ug RGB_SAD     // Saturation Decrease
+#define SP_INC      &rgb_ug RGB_SpI     // Speed Increase
+#define SP_DEC      &rgb_ug RGB_SpD     // Speed Decrease
+#define EFF_FW      &rgb_ug RGB_EFF     // Effect forward
+#define EFF_BCK     &rgb_ug RGB_EFR     // Effect reverse
+
+#define COLOR &rgb_ug RGB_COLOR_HSB(128,100,100)     // Specific Color
+
+/** MISC */
+#define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
+#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
 
 /** Layer Names */
-#define BASE 0
-#define NUMSYM 1
-#define FNGER 2
-#define NAV 3
-#define SYS 4
+#define BASE    0
+#define NUMSYM  1
+#define FNGER   2
+#define NAV     3
+#define SYS     4
 
 /**-------------------------------- Custom Behaviors --------------------------------*/
 
 /**
  * Behavior constants
  */
-#define _____ &trans
-#define XXXXX &none
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+#define _____       &trans
+#define XXXXX       &none
+#define NAV_LEFT    &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT   &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP      &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN    &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
 /**
  * Functions
@@ -251,21 +270,21 @@ ZMK_LAYER_3(nav,
 )
 
 /**Keyboard Functions*/
-//ZMK_LAYER_3(sys,
-//    // ╭───────┬──────────┬──────────┬───────────┬───────────┬───────╮                                ╭─────────────┬───────────────┬─────────────────┬───────────────┬──────────────┬─────────────╮
-//         _____   _____      _____      _____       _____       _____                                    _____         _____           _____             _____           _____          _____
-//    // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-//         _____   _____      _____      _____       _____       _____                                    &kp PG_UP     NAV_BSPC        NAV_UP            NAV_DEL         &kp PSCRN      _____
-//    // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-//         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   _____                                    &kp PG_DN     NAV_LEFT        NAV_DOWN          NAV_RIGHT       _____          _____
-//    // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-//         _____   _____      _____      _____       _____       _____   _____              _____         _____         _____           _____             _____           &kp INS        _____
-//    // ╰───────┴──────────┼──────────┼───────────┼───────────┼───────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
-//                                       _____            _____             _____              _____         _____              _____         _____         _____           _____             _____
-//    //                    ╰──────────┴───────────┴───────────┴───────┴─────────────╯    ╰─────────────┴─────────────┴───────────────┴─────────────────┴───────────────╯
-//    ,
-//    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-//)
+ZMK_LAYER_3(sys,
+    // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
+         XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         &bootloader   XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         XXXXX         &bt BT_SEL 4      &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       XXXXX
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         &sys_reset    XXXXX             XXXXX            XXXXX            XXXXX            XXXXX            XXXXX             XXXXX          XXXXX            EFF_FW        EFF_BCK           COLOR         XXXXX         &sys_reset
+    // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
+                                         XXXXX            XXXXX            XXXXX            &bt BT_CLR       CANCEL             CANCEL        EXT_POWER_TOG    XXXXX         XXXXX             XXXXX
+    //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
 
 //&caps_word {
 //    continue-list = <UNDERSCORE>;
