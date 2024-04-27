@@ -31,6 +31,30 @@
 #define UNDER_GLOW_PER_KEY_LED_COUNT    35
 #define PER_KEY_LED_COUNT               29
 
+/** Layer Names */
+#define BASE    0
+#define NUMSYM  1
+#define FNGER   2
+#define NAV     3
+#define SYS     4
+
+/**-------------------------------- Custom Behaviors --------------------------------*/
+
+/**
+ * Behavior constants
+ */
+ /** trans/none */
+#define _____       &trans
+#define XXXXX       &none
+
+/** Nav */
+#define NAV_LEFT    &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT   &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP      &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN    &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+
 /** RGB functions */
 #define LED_TOG     &rgb_ug RGB_TOG
 #define BRI_INC     &rgb_ug RGB_BRI     // Brightness increase
@@ -49,27 +73,6 @@
 /** MISC */
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
 #define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
-
-/** Layer Names */
-#define BASE    0
-#define NUMSYM  1
-#define FNGER   2
-#define NAV     3
-#define SYS     4
-
-/**-------------------------------- Custom Behaviors --------------------------------*/
-
-/**
- * Behavior constants
- */
-#define _____       &trans
-#define XXXXX       &none
-#define NAV_LEFT    &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT   &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP      &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN    &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
 /**
  * Functions
@@ -278,9 +281,9 @@ ZMK_LAYER_3(sys,
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          XXXXX         &bt BT_SEL 4      &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       XXXXX
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &sys_reset    XXXXX             XXXXX            XXXXX            XXXXX            XXXXX            XXXXX             XXXXX          XXXXX            EFF_FW        EFF_BCK           COLOR         XXXXX         &sys_reset
+         &sys_reset    XXXXX             XXXXX            XXXXX            XXXXX            XXXXX            _____             _____          XXXXX            EFF_FW        EFF_BCK           COLOR         XXXXX         &sys_reset
     // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
-                                         XXXXX            XXXXX            XXXXX            &bt BT_CLR       CANCEL             CANCEL        EXT_POWER_TOG    XXXXX         XXXXX             XXXXX
+                                         XXXXX            XXXXX            XXXXX            &bt BT_CLR       _____             _____          EXT_POWER_TOG    XXXXX         XXXXX             XXXXX
     //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
