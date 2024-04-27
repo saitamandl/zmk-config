@@ -52,9 +52,9 @@
 /** reuse basic mod-morph scheme */
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
-    mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
-    bindings = <BINDING1>, <BINDING2>; \
-)
+        mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
+        bindings = <BINDING1>, <BINDING2>; \
+    )
 
 /** long-tap action on hold, short-tap action on all interrupts */
 #define MT_CORE \
@@ -69,9 +69,9 @@
  */
 #define MASK_MODS(NAME, MODS, BINDING) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
-    bindings = <BINDING>, <BINDING>; \
-    mods = <MODS>; \
-)
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
 
 /**
  * hold-tap
@@ -148,8 +148,8 @@ ZMK_BEHAVIOR(smart_shift, mod_morph,
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
-//MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-//MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 
 /**
