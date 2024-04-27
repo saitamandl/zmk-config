@@ -63,8 +63,8 @@
 #define HUE_DEC     &rgb_ug RGB_HUD
 #define SAT_INC     &rgb_ug RGB_SAI     // Saturation Increase
 #define SAT_DEC     &rgb_ug RGB_SAD     // Saturation Decrease
-#define SP_INC      &rgb_ug RGB_SpI     // Speed Increase
-#define SP_DEC      &rgb_ug RGB_SpD     // Speed Decrease
+#define SP_INC      &rgb_ug RGB_SPI     // Speed Increase
+#define SP_DEC      &rgb_ug RGB_SPD     // Speed Decrease
 #define EFF_FW      &rgb_ug RGB_EFF     // Effect forward
 #define EFF_BCK     &rgb_ug RGB_EFR     // Effect reverse
 
