@@ -28,8 +28,8 @@
 #define TAP_MS 5
 
 /** RGB */
-#define UNDER_GLOW_PER_KEY_LED_COUNT = 35
-#define PER_KEY_LED_COUNT = 29
+#define UNDER_GLOW_PER_KEY_LED_COUNT 35
+#define PER_KEY_LED_COUNT 29
 
 /** Layer Names */
 #define BASE 0
