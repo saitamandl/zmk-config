@@ -39,8 +39,8 @@
  */
 #define _____ &trans
 #define XXXXX &none
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+//#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+//#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
 #define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
 #define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
 #define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
@@ -57,13 +57,13 @@
     )
 
 /** long-tap action on hold, short-tap action on all interrupts */
-#define MT_CORE \
-    flavor = "tap-preferred"; \
-    tapping-term-ms = MT_CORE_TAPPING_TERM_MS; \
-    quick-tap-ms = MT_CORE_QUICK_TAP_MS; \
-    hold-trigger-key-positions = <0>;
-
-&mt { MT_CORE };
+//#define MT_CORE \
+//    flavor = "tap-preferred"; \
+//    tapping-term-ms = MT_CORE_TAPPING_TERM_MS; \
+//    quick-tap-ms = MT_CORE_QUICK_TAP_MS; \
+//    hold-trigger-key-positions = <0>;
+//
+//&mt { MT_CORE };
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
@@ -85,10 +85,10 @@ ZMK_BEHAVIOR(hrm, hold_tap,
 )
 
 /** modified home  used for  long tap left -> beginning of line*/
-ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
+//ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
 
 /** modified end  used for  long tap right -> end of line*/
-ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
+//ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
 /**
  * tap-dance
@@ -148,8 +148,8 @@ ZMK_BEHAVIOR(bspc_del, mod_morph,
 /**
  * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
  */
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+//MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+//MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 
 /**
@@ -233,7 +233,7 @@ ZMK_LAYER_3(nav,
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          _____   _____      _____      _____       _____       _____                                    &kp PG_UP     NAV_BSPC        NAV_UP            NAV_DEL         &kp PSCRN      _____
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   _____                                    &kp PG_DN     NAV_LEFT        NAV_DOWN          NAV_RIGHT       _____          _____
+         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   _____                                    &kp PG_DN     _____        NAV_DOWN          _____       _____          _____
     // ├───────┼──────────┼──────────┼───────────┼───────────┼───────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          _____   _____      _____      _____       _____       _____   _____              _____         _____         _____           _____             _____           &kp INS        _____
     // ╰───────┴──────────┼──────────┼───────────┼───────────┼───────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
