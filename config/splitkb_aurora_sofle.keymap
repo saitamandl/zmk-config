@@ -146,7 +146,7 @@ ZMK_BEHAVIOR(smpl3tap, tap_dance,
 )
 
 /** toggle layers */
-ZMK_BEHAVIOR(smpl3tap, tap_dance,
+ZMK_BEHAVIOR(smpl3tog, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&to>, <&to>, <&to>;
 )
