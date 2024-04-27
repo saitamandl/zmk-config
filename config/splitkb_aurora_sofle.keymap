@@ -114,6 +114,14 @@ ZMK_BEHAVIOR(hrm, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
+/** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
+ZMK_BEHAVIOR(smart_space, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&spc_morph>;
+)
+
 /** modified home  used for  long tap left -> beginning of line*/
 ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
 
@@ -123,22 +131,6 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 /**
  * tap-dance
  */
-/** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
-ZMK_BEHAVIOR(smart_space, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&spc_morph>;
-)
-
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-
-ZMK_BEHAVIOR(dot_spc, macro,
-    wait-ms = <0>;
-    tap-ms = <5>;
-    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
-)
-
 /** toggle layers */
 ZMK_BEHAVIOR(layer_dance, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
@@ -154,6 +146,9 @@ ZMK_BEHAVIOR(bspc_del_fng, tap_dance,
 /**
  * mod-morph
  */
+ /** smart_space helper morphs shift space to dot_space macro  */
+SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
+
  /** tap: backspace | shift + tap: delete */
 ZMK_BEHAVIOR(bspc_del, mod_morph,
     bindings = <&kp BSPC>, <&kp DEL>;
@@ -177,6 +172,12 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 /**
  * macro
  */
+ /** smart_space helper generate space followed by dot */
+ZMK_BEHAVIOR(dot_spc, macro,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
  /** windows shut-down WIN + X + U + U */
 ZMK_BEHAVIOR(win_shutdown, macro,
     wait-ms = <WAIT_MS>;
