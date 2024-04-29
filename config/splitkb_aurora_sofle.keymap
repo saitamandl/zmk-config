@@ -266,7 +266,7 @@ ZMK_LAYER_3(nav,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
-/** Keyboard Functions */
+/** Mouse */
 ZMK_LAYER_3(mouse,
     // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
          XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
@@ -283,7 +283,7 @@ ZMK_LAYER_3(mouse,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
-/** Keyboard Functions */
+/** Keyboard and Media Functions */
 ZMK_LAYER_3(sys,
     // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
          XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
