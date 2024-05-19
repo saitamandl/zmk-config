@@ -30,6 +30,10 @@
 /** RGB */
 #define UNDER_GLOW_PER_KEY_LED_COUNT    35
 #define PER_KEY_LED_COUNT               29
+/** LED strip length for RGB */
+&led_strip {
+    chain-length = <PER_KEY_LED_COUNT>;
+};
 
 /** Layer Names */
 #define BASE    0
@@ -56,7 +60,7 @@
 #define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
-/** RGB functions */
+/** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
 #define BRI_INC     &rgb_ug RGB_BRI     // Brightness increase
 #define BRI_DEC     &rgb_ug RGB_BRD     // Brightness decrease
