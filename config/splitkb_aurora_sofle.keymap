@@ -69,7 +69,7 @@
 #define EFF_FW      &rgb_ug RGB_EFF     // Effect forward
 #define EFF_BCK     &rgb_ug RGB_EFR     // Effect reverse
 
-#define COLOR &rgb_ug RGB_COLOR_HSB(128,100,100)     // Specific Color
+#define PURPLE &rgb_ug RGB_COLOR_HSB(271, 79, 68)     // Specific Color
 
 /** MISC */
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
@@ -128,19 +128,21 @@ ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
 /** modified end  used for  long tap right -> end of line*/
 ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
+/** hold: layer | tap: bspc_del */
+ZMK_BEHAVIOR(bspc_del_layer, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&bspc_del>;
+)
+
 /**
  * tap-dance
  */
 /** toggle layers */
 ZMK_BEHAVIOR(layer_dance, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&tog NUM>, <&tog FNG>, <&tog NAV>, <&tog MOUS>, <&tog SYS> ;
-)
-
-/** hold: FNG | tap: bspc_del */
-ZMK_BEHAVIOR(bspc_del_fng, tap_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&mo FNG>, <&bspc_del>;
+    bindings = <&tog MOUS>, <&tog NAV>, <&tog SYS> ;
 )
 
 /**
@@ -195,22 +197,22 @@ ZMK_BEHAVIOR(win_restart, macro,
 /**
  * Layers Keymap
  */
- /** Activate NAV layer by pressing FNSYM and GER*/
-//ZMK_CONDITIONAL_LAYER(NUM GER, NAV)
+ /** Activate SYS layer by holding NUM and FNG*/
+ZMK_CONDITIONAL_LAYER(NUM FNG, SYS)
 
 /** Default QWERTY */
 ZMK_LAYER_3(base,
-    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬──────────────────╮                                   ╭────────────────────┬──────────────┬──────────────┬─────────────┬────────────────┬──────────╮
-         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX                                                  XXXXX                XXXXX          XXXXX          XXXXX         XXXXX            XXXXX
-    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┤                                   ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp Q         &kp W         &kp E         &kp R         &kp T                                                  &kp Y                &kp U          &kp I          &kp O         &kp P            XXXXX
-    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┤                                   ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &hrm LGUI A   &hrm LALT S   &hrm LCTRL D &hrm LSHFT F   &hrm ESC G                                             &hrm TAB H           &hrm RSHFT J   &hrm RCTRL K   &hrm RALT L   &hrm RGUI SEMI   XXXXX
-    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────╮    ╭─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp C_MUTE            &kp C_MUTE    &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
-    // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼──────────────────┼────────────────┤    ├─────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX         XXXXX         &bspc_del_fng      &lt NUM RET           &layer_dance   &smart_space NAV 0   XXXXX          XXXXX          XXXXX
-    //                             ╰─────────────┴─────────────┴─────────────┴──────────────────┴────────────────╯    ╰─────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬───────────────────────╮                                          ╭────────────────────┬──────────────┬──────────────┬─────────────┬────────────────┬──────────╮
+         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX                                                              XXXXX                XXXXX          XXXXX          XXXXX         XXXXX            XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┤                                          ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &kp Q         &kp W         &kp E         &kp R         &kp T                                                              &kp Y                &kp U          &kp I          &kp O         &kp P            XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┤                                          ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &hrm LGUI A   &hrm LALT S   &hrm LCTRL D &hrm LSHFT F   &hrm ESC G                                                         &hrm TAB H           &hrm RSHFT J   &hrm RCTRL K   &hrm RALT L   &hrm RGUI SEMI   XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &kp Z         &kp X         &kp C         &kp V         &kp B                   &kp C_MUTE            &kp C_MUTE           &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
+    // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
+                                     XXXXX         XXXXX         XXXXX         &bspc_del_layer NAV 0   &lt NUM RET           &smart_space FNG 0   &layer_dance         XXXXX          XXXXX          XXXXX
+    //                             ╰─────────────┴─────────────┴─────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
@@ -271,13 +273,13 @@ ZMK_LAYER_3(mouse,
     // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
          XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            &win_restart                                      XXXXX            M_SCROLL_L    M_CURSOR_U        M_SCROLL_R    XXXXX         XXXXX
+         XXXXX         &win_restart      XXXXX            XXXXX            M_BUTTON_L       M_BUTTON_R                                        XXXXX            M_SCROLL_L    M_CURSOR_U        M_SCROLL_R    XXXXX         XXXXX
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          XXXXX         &sk LGUI          &sk LALT         &sk LCTRL        &sk LSHFT        XXXXX                                             M_SCROLL_U       M_CURSOR_L    M_CURSOR_D        M_CURSOR_R    XXXXX         XXXXX
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            &win_shutdown    _____              _____         M_SCROLL_D       M_BUTTON_4    M_BUTTON_M        M_BUTTON_5    XXXXX         XXXXX
+         XXXXX         &win_shutdown     XXXXX            XXXXX            XXXXX            XXXXX            _____              _____         M_SCROLL_D       M_BUTTON_4    M_BUTTON_M        M_BUTTON_5    XXXXX         XXXXX
     // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
-                                         XXXXX            XXXXX            XXXXX            M_BUTTON_L       _____              _____         M_BUTTON_R       XXXXX         XXXXX             XXXXX
+                                         XXXXX            XXXXX            XXXXX            _____            _____              _____         _____            XXXXX         XXXXX             XXXXX
     //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
@@ -292,7 +294,7 @@ ZMK_LAYER_3(sys,
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          XXXXX         &bt BT_SEL 4      &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       XXXXX
     // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &sys_reset    XXXXX             XXXXX            XXXXX            &kp C_SHUFFLE    &win_shutdown    _____             _____          XXXXX            EFF_FW        EFF_BCK           COLOR         XXXXX         &sys_reset
+         &sys_reset    CANCEL            &bt BT_SEL 0     XXXXX            &kp C_SHUFFLE    &win_shutdown    _____             _____          XXXXX            EFF_FW        EFF_BCK           PURPLE        XXXXX         &sys_reset
     // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
                                          XXXXX            XXXXX            XXXXX            &bt BT_CLR       _____             _____          _____            XXXXX         XXXXX             XXXXX
     //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
