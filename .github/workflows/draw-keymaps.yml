@@ -5,6 +5,8 @@ on:
     paths:
       - "config/*.keymap"
       - "config/*.dtsi"
+      - "keymap-drawer/*.yml"
+      - "keymap-drawer/*.svg"
       - "keymap_drawer.config.yaml"
       - ".github/workflows/*.yml"
       # - 'boards/*/*/*.keymap'
