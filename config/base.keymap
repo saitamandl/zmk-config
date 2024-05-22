@@ -1,0 +1,307 @@
+/*
+ * Copyright (c) 2023 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+#include "mouse.dtsi"
+#include "zmk-helpers/helper.h"
+//#include "zmk-helpers/key-labels/60.h"
+#include "zmk-helpers/unicode-chars/german.dtsi"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
+
+/** Global settings */
+/** Constants */
+#define QUICK_TAP_MS                175
+#define TAPPING_TERM_MS             200
+#define MT_CORE_TAPPING_TERM_MS     220
+#define MT_CORE_QUICK_TAP_MS        220
+#define HRM_QUICK_TAP_MS            125
+#define HRM_TAPPING_TERM_MS         280
+#define WAIT_MS                     100
+#define TAP_MS                      5
+
+/** RGB */
+#define UNDER_GLOW_PER_KEY_LED_COUNT    35
+#define PER_KEY_LED_COUNT               29
+/** LED strip length for RGB */
+&led_strip {
+    chain-length = <PER_KEY_LED_COUNT>;
+};
+
+/** Layer Names */
+#define BASE    0
+#define NUM     1
+#define FNG     2
+#define NAV     3
+#define MOUS    4
+#define SYS     5
+
+/**-------------------------------- Custom Behaviors --------------------------------*/
+
+/**
+ * Behavior constants
+ */
+ /** trans/none */
+#define _____       &trans
+#define XXXXX       &none
+
+/** Nav */
+#define NAV_LEFT    &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT   &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP      &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN    &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+
+/** RGB behaviors */
+#define LED_TOG     &rgb_ug RGB_TOG
+#define BRI_INC     &rgb_ug RGB_BRI     // Brightness increase
+#define BRI_DEC     &rgb_ug RGB_BRD     // Brightness decrease
+#define HUE_INC     &rgb_ug RGB_HUI
+#define HUE_DEC     &rgb_ug RGB_HUD
+#define SAT_INC     &rgb_ug RGB_SAI     // Saturation Increase
+#define SAT_DEC     &rgb_ug RGB_SAD     // Saturation Decrease
+#define SP_INC      &rgb_ug RGB_SPI     // Speed Increase
+#define SP_DEC      &rgb_ug RGB_SPD     // Speed Decrease
+#define EFF_FW      &rgb_ug RGB_EFF     // Effect forward
+#define EFF_BCK     &rgb_ug RGB_EFR     // Effect reverse
+
+#define PURPLE &rgb_ug RGB_COLOR_HSB(271, 79, 68)     // Specific Color
+
+/** MISC */
+#define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
+#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
+
+/**
+ * Functions
+ */
+/** reuse basic mod-morph scheme */
+#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
+    ZMK_BEHAVIOR(NAME, mod_morph, \
+        mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
+        bindings = <BINDING1>, <BINDING2>; \
+    )
+
+/** long-tap action on hold, short-tap action on all interrupts */
+#define MT_CORE \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <MT_CORE_TAPPING_TERM_MS>; \
+    quick-tap-ms = <MT_CORE_QUICK_TAP_MS>; \
+    hold-trigger-key-positions = <0>;
+
+
+&mt { MT_CORE };
+/**
+ * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
+ */
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_BEHAVIOR(NAME, mod_morph, \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
+
+/**
+ * hold-tap
+ */
+/** home-row-mods */
+ZMK_BEHAVIOR(hrm, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <HRM_TAPPING_TERM_MS>;
+    quick-tap-ms = <HRM_QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+)
+
+/** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
+ZMK_BEHAVIOR(smart_space, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&spc_morph>;
+)
+
+/** modified home  used for  long tap left -> beginning of line*/
+ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
+
+/** modified end  used for  long tap right -> end of line*/
+ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
+
+/** hold: layer | tap: bspc_del */
+ZMK_BEHAVIOR(bspc_del_layer, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&bspc_del>;
+)
+
+/**
+ * tap-dance
+ */
+/** toggle layers */
+ZMK_BEHAVIOR(layer_dance, tap_dance,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&tog MOUS>, <&tog NAV>, <&tog SYS> ;
+)
+
+/**
+ * mod-morph
+ */
+ /** smart_space helper morphs shift space to dot_space macro  */
+SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
+
+ /** tap: backspace | shift + tap: delete */
+ZMK_BEHAVIOR(bspc_del, mod_morph,
+    bindings = <&kp BSPC>, <&kp DEL>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <MOD_RSFT>;
+)
+
+/** tap: sticky left shift | double tap: capsword */
+ZMK_BEHAVIOR(smart_shift, mod_morph,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+
+/**
+ * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
+ */
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+
+/**
+ * macro
+ */
+ /** smart_space helper generate space followed by dot */
+ZMK_BEHAVIOR(dot_spc, macro,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
+ /** windows shut-down WIN + X + U + U */
+ZMK_BEHAVIOR(win_shutdown, macro,
+    wait-ms = <WAIT_MS>;
+    tap-ms = <TAP_MS>;
+    bindings = <&kp LG(X) &kp U &kp U>;
+)
+
+/** windows restart WIN + X + U + R */
+ZMK_BEHAVIOR(win_restart, macro,
+    wait-ms = <WAIT_MS>;
+    tap-ms = <TAP_MS>;
+    bindings = <&kp LG(X) &kp U &kp R>;
+)
+
+/**
+ * Layers Keymap
+ */
+ /** Activate SYS layer by holding NUM and FNG*/
+ZMK_CONDITIONAL_LAYER(NUM FNG, SYS)
+
+/** Default QWERTY */
+ZMK_LAYER_3(base,
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬───────────────────────╮                                          ╭────────────────────┬──────────────┬──────────────┬─────────────┬────────────────┬──────────╮
+         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX         XXXXX                                                              XXXXX                XXXXX          XXXXX          XXXXX         XXXXX            XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┤                                          ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &kp Q         &kp W         &kp E         &kp R         &kp T                                                              &kp Y                &kp U          &kp I          &kp O         &kp P            XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┤                                          ├────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &hrm LGUI A   &hrm LALT S   &hrm LCTRL D &hrm LSHFT F   &hrm ESC G                                                         &hrm TAB H           &hrm RSHFT J   &hrm RCTRL K   &hrm RALT L   &hrm RGUI SEMI   XXXXX
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┼──────────┤
+         XXXXX         &kp Z         &kp X         &kp C         &kp V         &hrm K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M          &kp COMMA      &kp DOT       &smart_shift     XXXXX
+    // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────┼──────────────┼─────────────┼────────────────┴──────────╯
+                                     XXXXX         XXXXX         XXXXX         &bspc_del_layer NAV 0   &lt NUM RET           &smart_space FNG 0   &layer_dance         XXXXX          XXXXX          XXXXX
+    //                             ╰─────────────┴─────────────┴─────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────┴──────────────┴─────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
+
+/** Number and Symbols */
+ZMK_LAYER_3(num,
+    // ╭─────────────┬──────────────┬──────────────┬───────────────┬───────────────┬─────────────╮                                ╭─────────────┬───────────────┬─────────────────┬──────────────┬──────────────┬─────────────╮
+         _____         _____          _____          _____           _____           _____                                          _____         _____           _____             _____          _____          _____
+    // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
+         _____         _____          _____          &kp MINUS       _____           _____                                          _____         _____           &kp EQUAL         _____          _____          _____
+    // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
+         _____         &hrm LGUI N5   &hrm LALT N4   &hrm LCTRL N3   &hrm LSHFT N2   &hrm ESC N1                                    &hrm TAB N0        &hrm RSHFT N9   &hrm RCTRL N8     &hrm RALT N7   &hrm RGUI N6   _____
+    // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
+         _____         _____          &kp SEMI       &kp LBKT        &kp GRAVE       CANCEL        _____              _____         &kp BSLH      &kp FSLH        &kp RBKT          &kp SQT        _____          _____
+    // ╰─────────────┴──────────────┼──────────────┼───────────────┼───────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┴─────────────╯
+                                      _____          _____           _____           _____         _____              _____         _____         _____           _____             _____
+    //                              ╰──────────────┴───────────────┴───────────────┴─────────────┴─────────────╯    ╰─────────────┴─────────────┴───────────────┴─────────────────┴──────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
+
+/** Function Keys and Ger */
+ZMK_LAYER_3(fng,
+    // ╭──────────────┬──────────────┬──────────────┬──────────────┬───────────────┬─────────────╮                                ╭─────────────┬───────────────┬─────────────────┬───────────────┬──────────────┬─────────────╮
+         _____          _____          _____          _____          _____           _____                                          _____         _____           _____             _____           _____          _____
+    // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         &kp F13        &kp F14        &kp F15        &kp F16        &kp F17         &kp F18                                        &kp F19       &kp F20         &kp F21           &kp F22         &kp F23        &kp F24
+    // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         &kp F1         &hrm LGUI F2   &hrm LALT F3   &hrm LCTRL F4  &hrm LSHFT F5   &hrm ESC F6                                    &hrm TAB F7   &hrm RSHFT F8   &hrm RCTRL F9     &hrm RALT F10   &hrm RGUI F11   &kp F12
+    // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         _____          &de_ae         &de_eszett     &curr_euro     _____           CANCEL        _____              _____         _____         &de_ue          _____             &de_oe          _____          _____
+    // ╰──────────────┴──────────────┼──────────────┼──────────────┼───────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
+                                      _____          _____           _____           _____         _____              _____         _____         _____           _____             _____
+    //                              ╰──────────────┴───────────────┴───────────────┴─────────────┴─────────────╯    ╰─────────────┴─────────────┴───────────────┴─────────────────┴───────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
+
+/** Navigation */
+ZMK_LAYER_3(nav,
+    // ╭───────┬──────────┬──────────┬───────────┬───────────┬─────────╮                                ╭─────────────┬───────────────┬─────────────────┬───────────────┬──────────────┬─────────────╮
+         _____   _____      _____      _____       _____       _____                                      _____         _____           _____             _____           _____          _____
+    // ├───────┼──────────┼──────────┼───────────┼───────────┼─────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         _____   _____      _____      _____       _____       _____                                      &kp PG_UP     NAV_BSPC        NAV_UP            NAV_DEL         &kp PSCRN      _____
+    // ├───────┼──────────┼──────────┼───────────┼───────────┼─────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         _____   &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT   &kp ESC                                    &kp TAB       NAV_LEFT        NAV_DOWN          NAV_RIGHT       _____          _____
+    // ├───────┼──────────┼──────────┼───────────┼───────────┼─────────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
+         _____   _____      _____      _____       _____       CANCEL    _____              _____         &kp PG_DN     _____           _____             _____           &kp INS        _____
+    // ╰───────┴──────────┼──────────┼───────────┼───────────┼─────────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
+                            _____      _____       _____       _____     _____              _____         _____         _____           _____             _____
+    //                    ╰──────────┴───────────┴───────────┴─────────┴─────────────╯    ╰─────────────┴─────────────┴───────────────┴─────────────────┴───────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
+
+/** Mouse */
+ZMK_LAYER_3(mouse,
+    // ╭─────────────┬─────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
+         XXXXX         XXXXX             XXXXX            XXXXX            XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         XXXXX         &win_restart      XXXXX            XXXXX            M_BUTTON_L       M_BUTTON_R                                        XXXXX            M_SCROLL_L    M_CURSOR_U        M_SCROLL_R    XXXXX         XXXXX
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         XXXXX         &sk LGUI          &sk LALT         &sk LCTRL        &sk LSHFT        &kp ESC                                           M_SCROLL_U       M_CURSOR_L    M_CURSOR_D        M_CURSOR_R    XXXXX         XXXXX
+    // ├─────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         XXXXX         &win_shutdown     XXXXX            XXXXX            XXXXX            CANCEL           _____              _____         M_SCROLL_D       M_BUTTON_4    M_BUTTON_M        M_BUTTON_5    XXXXX         XXXXX
+    // ╰─────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
+                                         XXXXX            XXXXX            XXXXX            _____            _____              _____         _____            XXXXX         XXXXX             XXXXX
+    //                                 ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
+
+/** Keyboard and Media Functions */
+ZMK_LAYER_3(sys,
+    // ╭───────────────┬─────────────────┬────────────────┬───────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
+         XXXXX           XXXXX             XXXXX            XXXXX               XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
+    // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         &bootloader     &kp C_PREV        &kp C_PP         &kp C_NEXT          &kp C_REPEAT     &kp C_SHUFFLE                                     XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
+    // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         &bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 3     &bt BT_SEL 2        &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       &win_restart
+    // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+         &sys_reset      &win_shutdown     XXXXX            &ext_power EP_TOG   CANCEL           _____            _____              _____         EFF_FW           EFF_BCK       PURPLE            XXXXX         XXXXX         &sys_reset
+    // ╰───────────────┴─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
+                                           XXXXX            XXXXX               XXXXX            _____            _____              _____         _____            XXXXX         XXXXX             XXXXX
+    //                                   ╰────────────────┴───────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
+    ,
+    &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+)
