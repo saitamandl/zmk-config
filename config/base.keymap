@@ -12,7 +12,6 @@
 
 #include "mouse.dtsi"
 #include "zmk-helpers/helper.h"
-//#include "zmk-helpers/key-labels/60.h"
 #include "zmk-helpers/unicode-chars/german.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 
