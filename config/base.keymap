@@ -62,6 +62,14 @@
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
 #define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
 
+/** Layer Names */
+#define BASE    0
+#define NUM     1
+#define FNG     2
+#define NAV     3
+#define MOUS    4
+#define SYS     5
+
 /** LED strip length for RGB */
 &led_strip {
     chain-length = <PER_KEY_LED_COUNT>;
@@ -85,25 +93,17 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-/** num-word, requires PR #1451 */
-&num_word {
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
-};
-
 /** mods deactivate caps-word, requires PR #1451 */
 &caps_word {
     /delete-property/ ignore-modifiers;
     continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>;
 };
 
-/** Layer Names */
-#define BASE    0
-#define NUM     1
-#define FNG     2
-#define NAV     3
-#define MOUS    4
-#define SYS     5
+/** num-word, requires PR #1451 */
+&num_word {
+layers = <NUM>;
+continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
+};
 
 
 /**-------------------------------- Custom Behaviors --------------------------------*/
