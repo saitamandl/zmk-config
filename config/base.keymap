@@ -159,7 +159,7 @@ ZMK_HOLD_TAP(ccp,
     flavor = "balanced";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
     quick-tap-ms = <HRM_QUICK_TAP_MS>;
-    bindings = <&kp >, <&copy_cut>;
+    bindings = <&kp LS(INS)>, <&copy_cut>;
 )
 
 /**
