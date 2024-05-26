@@ -190,6 +190,7 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 /** right-split HRMs */
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
+
 /**
  * tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
  */
@@ -232,6 +233,12 @@ ZMK_HOLD_TAP(smart_num,
     bindings = <&mo>, <&num_dance>;
 )
 
+/** tap: num-word | double-tap: sticky num-layer */
+ZMK_TAP_DANCE(num_dance,
+        tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
+
 
 /**
  * tap: copy | double-tap: cut | long_hold: paste
@@ -243,19 +250,7 @@ ZMK_HOLD_TAP(ccp,
     bindings = <&kp>, <&copy_cut>;
 )
 
-
-/**
- * tap: num-word | double-tap: sticky num-layer
- */
-ZMK_TAP_DANCE(num_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
-)
-
-
-/**
- * tap: copy | double-tap: cut
- */
+/** tap: copy | double-tap: cut */
 ZMK_TAP_DANCE(copy_cut,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
