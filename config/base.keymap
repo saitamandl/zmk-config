@@ -23,6 +23,7 @@
 #define MT_CORE_QUICK_TAP_MS        220
 #define HRM_QUICK_TAP_MS            125
 #define HRM_TAPPING_TERM_MS         280
+#define HRM_REQUIRE_PRIOR_IDLE_MS   150
 #define WAIT_MS                     100
 #define TAP_MS                      5
 #define RELEASE_AFTER_MS            900
@@ -61,6 +62,16 @@
 /** MISC */
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
 #define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
+
+/**
+ * Key Positions
+ */
+/** Left Split */
+#define KEYS_L LN0 LN1 LN2 LN3 LN4 LN5 LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5
+/** Right Split */
+#define KEYS_R RN0 RN1 RN2 RN3 RN4 RN5 RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5
+/** Thumbs */
+#define THUMBS LH0 LH1 LH2 LH3 LH4 RH0 RH1 RH2 RH3 RH4
 
 /** Layer Names */
 #define BASE    0
@@ -118,6 +129,18 @@ continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE B
         bindings = <BINDING1>, <BINDING2>; \
     )
 
+/** Home row modifiers */
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_HOLD_TAP(NAME, \
+        flavor = "balanced"; \
+        tapping-term-ms = <HRM_TAPPING_TERM_MS>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <HRM_REQUIRE_PRIOR_IDLE_MS>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+
 
 /**
  *  left-arrow->home and  right-arrow->end
@@ -157,6 +180,15 @@ ZMK_HOLD_TAP(hrm,
     quick-tap-ms = <HRM_QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
 )
+
+
+/**
+ * home-row-mods left and right
+ */
+ /** left-split HRMs */
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
+/** right-split HRMs */
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 /**
  * tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
@@ -292,9 +324,9 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                          ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Q         &kp W         &kp E          &kp R            &kp T                                                              &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                          ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &hrm LGUI A   &hrm LALT S   &hrm LCTRL D   &hrm LSHFT F     &hrm ESC G                                                         &hrm TAB H           &hrm RSHFT J       &hrm RCTRL K   &hrm RALT L   &hrm RGUI SEMI   XXXXX
+         XXXXX         &hml LGUI A   &hml LALT S   &hml LCTRL D   &hml LSHFT F     &hml ESC G                                                         &hmr TAB H           &hmr RSHFT J       &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp Z         &kp X         &kp C          &kp V            &hrm K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
+         XXXXX         &kp Z         &kp X         &kp C          &kp V            &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
                                      XXXXX         XXXXX          &ccp LS(INS) 0   &bspc_del_layer NAV 0   &lt MOUS RET          &smart_space FNG 0   &smart_shift         &smart_num NUM 0   XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
@@ -309,7 +341,7 @@ ZMK_LAYER_3(num,
     // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
          _____         _____          _____          &kp MINUS       _____           _____                                          _____         &kp BSLH        &kp EQUAL         _____          _____          _____
     // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
-         _____         &hrm LGUI N5   &hrm LALT N4   &hrm LCTRL N3   &hrm LSHFT N2   &hrm ESC N1                                    &hrm TAB N0   &hrm RSHFT N9   &hrm RCTRL N8     &hrm RALT N7   &hrm RGUI N6   _____
+         _____         &hml LGUI N5   &hml LALT N4   &hml LCTRL N3   &hml LSHFT N2   &hml ESC N1                                    &hmr TAB N0   &hmr RSHFT N9   &hmr RCTRL N8     &hmr RALT N7   &hmr RGUI N6   _____
     // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
          _____         _____          &kp SEMI       &kp LBKT        &kp GRAVE       CANCEL        _____              _____         _____         &kp FSLH        &kp RBKT          &kp SQT        _____          _____
     // ╰─────────────┴──────────────┼──────────────┼───────────────┼───────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┴─────────────╯
@@ -326,7 +358,7 @@ ZMK_LAYER_3(fng,
     // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          &kp F13        &kp F14        &kp F15        &kp F16        &kp F17         &kp F18                                        &kp F19       &kp F20         &kp F21           &kp F22         &kp F23        &kp F24
     // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
-         &kp F1         &hrm LGUI F2   &hrm LALT F3   &hrm LCTRL F4  &hrm LSHFT F5   &hrm ESC F6                                    &hrm TAB F7   &hrm RSHFT F8   &hrm RCTRL F9     &hrm RALT F10   &hrm RGUI F11   &kp F12
+         &kp F1         &hml LGUI F2   &hml LALT F3   &hml LCTRL F4  &hml LSHFT F5   &hml ESC F6                                    &hmr TAB F7   &hmr RSHFT F8   &hmr RCTRL F9     &hmr RALT F10   &hmr RGUI F11   &kp F12
     // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┼─────────────╮    ╭─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
          _____          &de_ae         &de_eszett     &curr_euro     _____           CANCEL        _____              _____         _____         &de_ue          _____             &de_oe          _____          _____
     // ╰──────────────┴──────────────┼──────────────┼──────────────┼───────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┴─────────────╯
