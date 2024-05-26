@@ -25,33 +25,17 @@
 #define HRM_TAPPING_TERM_MS         280
 #define WAIT_MS                     100
 #define TAP_MS                      5
+#define RELEASE_AFTER_MS            900
 
 /** RGB */
 #define UNDER_GLOW_PER_KEY_LED_COUNT    35
 #define PER_KEY_LED_COUNT               29
-/** LED strip length for RGB */
-&led_strip {
-    chain-length = <PER_KEY_LED_COUNT>;
-};
 
-/** Layer Names */
-#define BASE    0
-#define NUM     1
-#define FNG     2
-#define NAV     3
-#define MOUS    4
-#define SYS     5
-
-/**-------------------------------- Custom Behaviors --------------------------------*/
-
-/**
- * Behavior constants
- */
- /** trans/none */
+/** trans/none */
 #define _____       &trans
 #define XXXXX       &none
 
-/** Nav */
+/** Navigations */
 #define NAV_LEFT    &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
 #define NAV_RIGHT   &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
 #define NAV_UP      &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
@@ -78,6 +62,52 @@
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
 #define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
 
+/** LED strip length for RGB */
+&led_strip {
+    chain-length = <PER_KEY_LED_COUNT>;
+};
+
+/** sticky-key config */
+&sk {
+release-after-ms = <RELEASE_AFTER_MS>;  // release after 0.6s
+quick-release;                          // no double capitalization when rolling keys
+};
+
+/** sticky-layer config */
+&sl {
+ignore-modifiers;          // allow chording sticky mods & layers
+};
+
+/** layer-tap config */
+&lt {
+flavor = "balanced";
+tapping-term-ms = <TAPPING_TERM_MS>;
+quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+/** num-word, requires PR #1451 */
+&num_word {
+layers = <NUM>;
+continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
+};
+
+/** mods deactivate caps-word, requires PR #1451 */
+&caps_word {
+/delete-property/ ignore-modifiers;
+continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>;
+};
+
+/** Layer Names */
+#define BASE    0
+#define NUM     1
+#define FNG     2
+#define NAV     3
+#define MOUS    4
+#define SYS     5
+
+
+/**-------------------------------- Custom Behaviors --------------------------------*/
+
 /**
  * Functions
  */
@@ -88,6 +118,11 @@
         bindings = <BINDING1>, <BINDING2>; \
     )
 
+
+/**
+ *  left-arrow->home and  right-arrow->end
+ */
+
 /** long-tap action on hold, short-tap action on all interrupts */
 #define MT_CORE \
     flavor = "tap-preferred"; \
@@ -95,32 +130,27 @@
     quick-tap-ms = <MT_CORE_QUICK_TAP_MS>; \
     hold-trigger-key-positions = <0>;
 
-
 &mt { MT_CORE };
-/**
- * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
- */
+
+/** modified home  used for  long tap left-arrow -> beginning of line*/
+ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
+
+/** modified end  used for  long tap right-arrow -> end of line*/
+ZMK_HOLD_TAP(mt_end,   bindings = <&masked_end>, <&kp>; MT_CORE)
+
+/** mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document */
 #define MASK_MODS(NAME, MODS, BINDING) \
     ZMK_MOD_MORPH(NAME, \
         bindings = <BINDING>, <BINDING>; \
         mods = <MODS>; \
     )
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
-/** num-word, requires PR #1451 */
-&num_word {
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
-};
 
-/** mods deactivate caps-word, requires PR #1451 */
-&caps_word {
-    /delete-property/ ignore-modifiers;
-    continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>;
-};
 /**
- * hold-tap
+ * home-row-mods
  */
-/** home-row-mods */
 ZMK_HOLD_TAP(hrm,
     flavor = "balanced";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
@@ -128,7 +158,9 @@ ZMK_HOLD_TAP(hrm,
     bindings = <&kp>, <&kp>;
 )
 
-/** tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer */
+/**
+ * tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
+ */
 ZMK_HOLD_TAP(smart_space,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
@@ -136,13 +168,20 @@ ZMK_HOLD_TAP(smart_space,
     bindings = <&mo>, <&spc_morph>;
 )
 
-/** modified home  used for  long tap left -> beginning of line*/
-ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
+/** smart_space helper morphs shift space to dot_space macro  */
+SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
 
-/** modified end  used for  long tap right -> end of line*/
-ZMK_HOLD_TAP(mt_end,   bindings = <&masked_end>, <&kp>; MT_CORE)
+/** smart_space helper generate space followed by dot */
+ZMK_MACRO(dot_spc,
+    wait-ms = <0>;
+    tap-ms = <TAP_MS>;
+    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
 
-/** hold: layer | tap: bspc_del */
+
+/**
+ * hold: layer | tap: bspc_del
+ */
 ZMK_HOLD_TAP(bspc_del_layer,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
@@ -150,7 +189,10 @@ ZMK_HOLD_TAP(bspc_del_layer,
     bindings = <&mo>, <&bspc_del>;
 )
 
-/** tap: num-word | double-tap: sticky num-layer | hold: layer */
+
+/**
+ * tap: num-word | double-tap: sticky num-layer | hold: layer
+ */
 ZMK_HOLD_TAP(smart_num,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
@@ -159,7 +201,9 @@ ZMK_HOLD_TAP(smart_num,
 )
 
 
-/** tap: copy | double-tap: cut | long_hold: paste */
+/**
+ * tap: copy | double-tap: cut | long_hold: paste
+ */
 ZMK_HOLD_TAP(ccp,
     flavor = "balanced";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
@@ -167,91 +211,79 @@ ZMK_HOLD_TAP(ccp,
     bindings = <&kp>, <&copy_cut>;
 )
 
-/**
- * tap-dance
- */
-/** toggle layers */
-ZMK_TAP_DANCE(layer_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&tog MOUS>, <&tog NAV>, <&tog SYS> ;
-)
 
-/** tap: num-word | double-tap: sticky num-layer */
+/**
+ * tap: num-word | double-tap: sticky num-layer
+ */
 ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
-/** tap: copy | double-tap: cut */
+
+/**
+ * tap: copy | double-tap: cut
+ */
 ZMK_TAP_DANCE(copy_cut,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
-/**
- * tri-state
- */
 
-/** Alt+Tab swapper, requires PR #1366 */
+/**
+ * Alt+Tab swapper, requires PR #1366
+ */
 ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
 //    ignored-key-positions = <LT2>;
 )
 
-/**
- * mod-morph
- */
- /** smart_space helper morphs shift space to dot_space macro  */
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
 
- /** tap: backspace | shift + tap: delete */
- ZMK_MOD_MORPH(bspc_del,
+/**
+ * tap: backspace | shift + tap: delete
+ */
+ZMK_MOD_MORPH(bspc_del,
     bindings = <&kp BSPC>, <&kp DEL>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
     keep-mods = <MOD_RSFT>;
 )
 
-/** tap: sticky left shift | double tap: capsword */
+
+/**
+ * tap: sticky left shift | double tap: capsword
+*/
 ZMK_MOD_MORPH(smart_shift,
     bindings = <&sk LSHFT>, <&caps_word>;
-    mods = <(MOD_LSFT)>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-
-/**
- * mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
- */
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 
 /**
- * macro
+ * windows shut-down WIN + X + U + U
  */
- /** smart_space helper generate space followed by dot */
-ZMK_MACRO(dot_spc,
-    wait-ms = <0>;
-    tap-ms = <5>;
-    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
-)
- /** windows shut-down WIN + X + U + U */
- ZMK_MACRO(win_shutdown,
+ZMK_MACRO(win_shutdown,
     wait-ms = <WAIT_MS>;
     tap-ms = <TAP_MS>;
     bindings = <&kp LG(X) &kp U &kp U>;
 )
 
-/** windows restart WIN + X + U + R */
+
+/**
+ * windows restart WIN + X + U + R
+ */
 ZMK_MACRO(win_restart,
     wait-ms = <WAIT_MS>;
     tap-ms = <TAP_MS>;
     bindings = <&kp LG(X) &kp U &kp R>;
 )
 
+
 /**
  * Layers Keymap
  */
  /** Activate SYS layer by holding NUM and FNG*/
-ZMK_CONDITIONAL_LAYER(NUM FNG, SYS)
+ZMK_CONDITIONAL_LAYER(MOUS FNG, SYS)
+
 
 /** Default QWERTY */
 ZMK_LAYER_3(base,
@@ -287,7 +319,7 @@ ZMK_LAYER_3(num,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 
-/** Function Keys and Ger */
+/** Function Keys and German characters */
 ZMK_LAYER_3(fng,
     // ╭──────────────┬──────────────┬──────────────┬──────────────┬───────────────┬─────────────╮                                ╭─────────────┬───────────────┬─────────────────┬───────────────┬──────────────┬─────────────╮
          _____          _____          _____          _____          _____           _____                                          _____         _____           _____             _____           _____          _____
