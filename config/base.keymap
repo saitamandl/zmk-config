@@ -61,7 +61,7 @@
 
 /** MISC */
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
-#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
+#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word
 
 /**
  * Key Positions
@@ -203,7 +203,7 @@ ZMK_HOLD_TAP(dot_space,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&tog>, <&space_morph>;
+    bindings = <&mo>, <&space_morph>;
 )
 
 /** tap: space | shift + tap: dot -> space -> sticky shift  */
@@ -224,7 +224,7 @@ ZMK_HOLD_TAP(bspc_delete,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&tog>, <&bspc_del>;
+    bindings = <&mo>, <&bspc_del>;
 )
 
 /** tap: backspace | shift + tap: delete */
