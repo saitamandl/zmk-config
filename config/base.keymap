@@ -69,32 +69,32 @@
 
 /** sticky-key config */
 &sk {
-release-after-ms = <RELEASE_AFTER_MS>;  // release after 0.6s
-quick-release;                          // no double capitalization when rolling keys
+    release-after-ms = <RELEASE_AFTER_MS>;  // release after 0.6s
+    quick-release;                          // no double capitalization when rolling keys
 };
 
 /** sticky-layer config */
 &sl {
-ignore-modifiers;          // allow chording sticky mods & layers
+    ignore-modifiers;          // allow chording sticky mods & layers
 };
 
 /** layer-tap config */
 &lt {
-flavor = "balanced";
-tapping-term-ms = <TAPPING_TERM_MS>;
-quick-tap-ms = <QUICK_TAP_MS>;
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
 };
 
 /** num-word, requires PR #1451 */
 &num_word {
-layers = <NUM>;
-continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
 };
 
 /** mods deactivate caps-word, requires PR #1451 */
 &caps_word {
-/delete-property/ ignore-modifiers;
-continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>;
+    /delete-property/ ignore-modifiers;
+    continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>;
 };
 
 /** Layer Names */
