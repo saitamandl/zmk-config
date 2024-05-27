@@ -112,8 +112,8 @@
 
 /** num-word, requires PR #1451 */
 &num_word {
-layers = <NUM>;
-continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
 };
 
 
@@ -276,6 +276,17 @@ ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     ignored-key-positions = <LT2>;
 )
+
+
+/**
+ * smart-mouse, requires PR #1366
+ */
+ZMK_TRI_STATE(mouse_l,
+    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+    ignored-key-positions = <LT1 LT3 RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 RB1 RB2 RB3 RH0 RH1>; //need figure out
+    ignored-layers = <MOUSE>;
+)
+
 
 
 /**
