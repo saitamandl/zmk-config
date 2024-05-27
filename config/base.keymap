@@ -192,16 +192,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 
 /**
- * tap: letter | long-tap: sticky left shift | double tap: capsword
-*/
-MAKE_HRM(hml_css, &cs_shift, &kp, KEYS_R THUMBS)
-MAKE_HRM(hmr_css, &cs_shift, &kp, KEYS_L THUMBS)
-/**
  * tap: sticky left shift | double tap: capsword
 */
 ZMK_MOD_MORPH(cs_shift,
-    bindings = <&sk>, <&caps_word>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
 )
 
 /**
@@ -323,12 +318,12 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┤                                          ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Q         &kp W         &kp E          &kp R              &kp T                                                              &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┤                                          ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &hml LGUI A   &hml LALT S   &hml LCTRL D   &hml_css LSHFT F   &hml ESC G                                                         &hmr TAB H           &hmr_css RSHFT J   &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
+         XXXXX         &hml LGUI A   &hml LALT S   &hml LCTRL D   &hml LSHFT F       &hml ESC G                                                         &hmr TAB H           &hmr RSHFT J       &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V              &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &ccp LS(INS) 0     &bspc_del_layer NAV 0   &lt MOUS RET          &smart_space FNG 0   &smart_num NUM 0     XXXXX               XXXXX          XXXXX
-    //                             ╰─────────────┴──────────────┴──────────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴───────────────────┴──────────────┴─────────────╯
+                                     XXXXX         XXXXX          &ccp LS(INS) 0     &bspc_del_layer NAV 0   &lt MOUS RET          &smart_space FNG 0   &smart_num NUM 0     &cs_shift           XXXXX          XXXXX
+    //                             ╰─────────────┴──────────────┴──────────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
