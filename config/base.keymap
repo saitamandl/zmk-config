@@ -191,7 +191,7 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 /** tap: sticky left shift | double tap: capsword */
-ZMK_MOD_MORPH(cs_shft,
+ZMK_MOD_MORPH(cs_shift,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
@@ -315,7 +315,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V              &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &ccp LS(INS) 0     &mo NAV                 &lt MOUS RET          &mo FNG              &mo NUM     &cs_shift           XXXXX          XXXXX
+                                     XXXXX         XXXXX          &ccp LS(INS) 0     &mo NAV                 &lt MOUS RET          &mo FNG              &mo NUM              &cs_shift           XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴──────────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
