@@ -61,7 +61,7 @@
 
 /** MISC */
 #define EXT_POWER_TOG &ext_power EP_TOG       // toggle the external power
-#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word and smart-mouse
+#define CANCEL        &kp K_CANCEL            // cancel caps-word, num-word
 
 /**
  * Key Positions
@@ -145,7 +145,6 @@ continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE B
 /**
  *  left-arrow->home and  right-arrow->end
  */
-
 /** long-tap action on hold, short-tap action on all interrupts */
 #define MT_CORE \
     flavor = "tap-preferred"; \
@@ -185,34 +184,32 @@ ZMK_HOLD_TAP(hrm,
 /**
  * home-row-mods left and right
  */
- /** left-split HRMs */
+/** left-split HRMs */
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
+
 /** right-split HRMs */
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
-
-/**
- * tap: sticky left shift | double tap: capsword
-*/
-ZMK_MOD_MORPH(cs_shift,
+/** tap: sticky left shift | double tap: capsword */
+ZMK_MOD_MORPH(cs_shft,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
 
 /**
- * tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
+ * tap: space | shift + tap: dot -> space -> sticky shift | hold/long-tap: activate layer
  */
-ZMK_HOLD_TAP(smart_space,
+ZMK_HOLD_TAP(dot_space,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&spc_morph>;
+    bindings = <&mo>, <&space_morph>;
 )
 
-/** smart_space helper morphs shift space to dot_space macro  */
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
+/** tap: space | shift + tap: dot -> space -> sticky shift  */
+SIMPLE_MORPH(space_morph, SFT, &kp SPACE, &dot_spc)
 
-/** smart_space helper generate space followed by dot */
+/** shift + tap: dot -> space -> sticky shift */
 ZMK_MACRO(dot_spc,
     wait-ms = <0>;
     tap-ms = <TAP_MS>;
@@ -221,20 +218,27 @@ ZMK_MACRO(dot_spc,
 
 
 /**
- * hold: layer | tap: bspc_del
+ * hold: layer | tap: backspace | shift + tap: delete
  */
-ZMK_HOLD_TAP(bspc_del_layer,
+ZMK_HOLD_TAP(bspc_delete,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&bspc_del>;
 )
 
+/** tap: backspace | shift + tap: delete */
+ZMK_MOD_MORPH(bspc_del,
+    bindings = <&kp BSPC>, <&kp DEL>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <MOD_RSFT>;
+)
+
 
 /**
  * tap: num-word | double-tap: sticky num-layer | hold: layer
  */
-ZMK_HOLD_TAP(smart_num,
+ZMK_HOLD_TAP(n_num_wrd,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
@@ -270,17 +274,7 @@ ZMK_TAP_DANCE(copy_cut,
  */
 ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-//    ignored-key-positions = <LT2>;
-)
-
-
-/**
- * tap: backspace | shift + tap: delete
- */
-ZMK_MOD_MORPH(bspc_del,
-    bindings = <&kp BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    keep-mods = <MOD_RSFT>;
+    ignored-key-positions = <LT2>;
 )
 
 
@@ -303,7 +297,6 @@ ZMK_MACRO(win_restart,
     bindings = <&kp LG(X) &kp U &kp R>;
 )
 
-
 /**
  * Layers Keymap
  */
@@ -322,7 +315,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────╮    ╭────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V              &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE           &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼──────────────────┼───────────────────────┼────────────────┤    ├────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &ccp LS(INS) 0     &bspc_del_layer NAV 0   &lt MOUS RET          &smart_space FNG 0   &smart_num NUM 0     &cs_shift           XXXXX          XXXXX
+                                     XXXXX         XXXXX          &ccp LS(INS) 0     &mo NAV                 &lt MOUS RET          &mo FNG              &smart_num NUM 0     &cs_shift           XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴──────────────────┴───────────────────────┴────────────────╯    ╰────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
