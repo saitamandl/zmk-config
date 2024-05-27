@@ -78,7 +78,7 @@
 #define NUM     1
 #define FNG     2
 #define NAV     3
-#define MOUS    4
+#define MOUSE    4
 #define SYS     5
 
 /** LED strip length for RGB */
@@ -203,7 +203,7 @@ ZMK_HOLD_TAP(dot_space,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&space_morph>;
+    bindings = <&tog>, <&space_morph>;
 )
 
 /** tap: space | shift + tap: dot -> space -> sticky shift  */
@@ -224,7 +224,7 @@ ZMK_HOLD_TAP(bspc_delete,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&bspc_del>;
+    bindings = <&tog>, <&bspc_del>;
 )
 
 /** tap: backspace | shift + tap: delete */
@@ -242,7 +242,7 @@ ZMK_HOLD_TAP(n_num_wrd,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&num_dance>;
+    bindings = <&tog>, <&num_dance>;
 )
 
 /** tap: num-word | double-tap: sticky num-layer */
@@ -302,7 +302,7 @@ ZMK_MACRO(win_restart,
  * Layers Keymap
  */
  /** Activate SYS layer by holding NUM and FNG*/
-ZMK_CONDITIONAL_LAYER(MOUS FNG, SYS)
+ZMK_CONDITIONAL_LAYER(MOUSE FNG, SYS)
 
 
 /** Default QWERTY */
@@ -316,7 +316,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V            &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE            &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &ccp LS(INS) 0   &bspc_delete NAV 0      &lt FNG RET           &dot_space MOUS 0     &n_num_wrd NUM 0     &cs_shft           XXXXX          XXXXX
+                                     XXXXX         XXXXX          &ccp LS(INS) 0   &bspc_delete NAV 0      &lt FNG RET           &dot_space MOUSE 0     &n_num_wrd NUM 0     &cs_shft           XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
