@@ -274,7 +274,7 @@ ZMK_TAP_DANCE(copy_cut,
  */
 ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-//    ignored-key-positions = <LT2>;
+    ignored-key-positions = <LT2>;
 )
 
 
