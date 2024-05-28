@@ -53,7 +53,7 @@ layers:
     - [null, null, null, null, null, null, null, null, null, null, null, null]
     - [null, {t: Q, type: trans}, {t: W, type: trans}, {t: "$$material:keyboard_tab_rtl$$"},  {t: "$$material:select_window_2$$"}, {t: T, type: trans}, {t: "$$material:expand_circle_up$$"}, {h: "$$material:text_select_move_forward_word$$", t: "$$mdi:backspace-outline$$"} , {h: "$$material:text_select_move_up$$", t: "$$material:keyboard_arrow_up$$"}, {h: "$$material:text_select_move_back_word$$", t: "$$mdi:backspace-reverse-outline$$"}, {t: "$$material:screenshot_monitor$$"}, null]
     - [null, {t: Gui}, {t: Alt}, {t: Ctrl}, {t: Shift}, {t: Esc}, {t: Tab}, {h: "$$material:text_select_jump_to_beginning$$", t: "$$material:keyboard_arrow_left$$"}, {h: "$$material:text_select_move_down$$", t: "$$material:keyboard_arrow_down$$"}, {h: "$$material:text_select_jump_to_end$$", t: "$$material:keyboard_arrow_right$$"}, {h: Gui, t: ";", s: ":", type: trans}, null]
-    - [null, Ä, ẞ, €, {t: "V", type: trans}, "$$material:block$$", {t: "$$material:volume_off$$", type: trans}, {t: "$$material:volume_off$$", type: trans}, {t: "$$material:expand_circle_down$$"}, Ü, {t: ",", s: "<", type: trans}, Ö, {t: Ins}, null]
+    - [null, {t: "z", type: trans}, {t: "x", type: trans}, "$$material:left_panel_close$$", "$$material:right_panel_close$$", "$$material:block$$", {t: "$$material:volume_off$$", type: trans}, {t: "$$material:volume_off$$", type: trans}, {t: "$$material:expand_circle_down$$"}, {t: M, type: trans}, {t: ",", s: "<", type: trans}, {t: ".", s: ">", type: trans}, {t: Ins}, null]
     - null
     - null
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: trans}
