@@ -252,11 +252,11 @@ ZMK_TAP_DANCE(num_dance,
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
-/** tap: num-word | double-tap: sticky num-layer */
-//ZMK_TAP_DANCE(ctrl_esc,
-//    tapping-term-ms = <TAPPING_TERM_MS>;
-//    bindings = <&kp LCTRL>, <&kp LCTRL>, <kp ESC>;
-//)
+/** tap: CTRL | double-tap: CTRL | tripple-tap: ESC */
+ZMK_TAP_DANCE(ctrl_esc,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <&kp ESC>;
+)
 
 
 /**
