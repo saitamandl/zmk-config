@@ -253,10 +253,10 @@ ZMK_TAP_DANCE(num_dance,
 )
 
 /** tap: num-word | double-tap: sticky num-layer */
-ZMK_TAP_DANCE(ctrl_esc,
-        tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LCTRL>, <&kp LCTRL>, <kp ESC>;
-)
+//ZMK_TAP_DANCE(ctrl_esc,
+//    tapping-term-ms = <TAPPING_TERM_MS>;
+//    bindings = <&kp LCTRL>, <&kp LCTRL>, <kp ESC>;
+//)
 
 
 /**
@@ -437,7 +437,7 @@ ZMK_LAYER_3(game,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp N3        &kp G         &kp X          &kp C            &kp Y                   &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               &ctrl_esc             _____                 _____                _____              XXXXX          XXXXX
+                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               &trans             _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
