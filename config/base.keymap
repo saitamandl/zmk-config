@@ -80,7 +80,7 @@
 #define NAV     3
 #define MOUSE   4
 #define SYS     5
-#define GAME     5
+#define GAME    6
 
 /** LED strip length for RGB */
 &led_strip {
@@ -255,7 +255,7 @@ ZMK_TAP_DANCE(num_dance,
 /** tap: num-word | double-tap: sticky num-layer */
 ZMK_TAP_DANCE(ctrl_esc,
         tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LCTRL>, <&kp LCTRL>, <kp ESC>;  // reverse this for sticky-num on single tap
+    bindings = <&kp LCTRL>, <&kp LCTRL>, <kp ESC>;
 )
 
 
@@ -290,7 +290,7 @@ ZMK_TRI_STATE(swapper,
  */
 ZMK_TRI_STATE(mouse_l,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT1 LT3 RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 RB1 RB2 RB3 RH0 RH1>; //need figure out
+    ignored-key-positions = <LT1 LT3 RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 RB1 RB2 RB3 RH0 RH1>; //need figuring out
     ignored-layers = <MOUSE>;
 )
 
