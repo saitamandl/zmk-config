@@ -65,9 +65,9 @@
 /** tap: Play/Pause | long-tap: Stop */
 #define PP_S        &vol_media C_STOP C_PP
 /** tap: Next | long-tap: Fast Forward */
-#define nxt_ff      &vol_media C_FF C_NEXT
+#define NXT_FF      &vol_media C_FF C_NEXT
 /** tap: Next | long-tap: Fast Forward */
-#define prev_rw     &vol_media C_RW C_PREV
+#define PREV_RW     &vol_media C_RW C_PREV
 
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
