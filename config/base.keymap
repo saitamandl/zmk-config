@@ -44,6 +44,23 @@
 #define NAV_BSPC    &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL     &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
+/** VoLume */
+#define VOL_U       &kp C_VOL_UP
+#define VOL_D       &kp C_VOL_DN
+#define VOL_MU      &kp C_MUTE
+
+/** Media */
+#define PP          &kp C_PP
+#define STOP        &kp C_STOP
+#define PREV        &kp C_PREV
+#define NEXT        &kp C_NEXT
+#define REPEAT      &kp C_REPEAT
+#define SHUFFLE     &kp C_SHUFFLE
+#define FF          &kp C_FF
+#define RW          &kp C_RW
+#define SLOW        &kp C_SLOW
+
+
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
 #define BRI_INC     &rgb_ug RGB_BRI     // Brightness increase
@@ -215,6 +232,50 @@ ZMK_MACRO(dot_spc,
     wait-ms = <0>;
     tap-ms = <TAP_MS>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
+
+
+/**
+ * tap: volume down | long-tap: volume mute/unmute
+ */
+ZMK_HOLD_TAP(vol_dn_mu,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <VOL_MU>, <VOL_D>;
+)
+
+
+/**
+ * tap: Play/Pause | long-tap: Stop
+ */
+ZMK_HOLD_TAP(pp_s,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <STOP>, <PP>;
+)
+
+
+/**
+ * tap: Next | long-tap: Fast Forward
+ */
+ZMK_HOLD_TAP(nxt_ff,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <FF>, <NEXT>;
+)
+
+
+/**
+ * tap: Next | long-tap: Fast Forward
+ */
+ZMK_HOLD_TAP(prev_rw,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <RW>, <PREV>;
 )
 
 
@@ -400,9 +461,9 @@ ZMK_LAYER_3(mouse,
     // ├───────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          XXXXX           &sk LGUI          M_SCROLL_L       M_SCROLL_D       M_CURSOR_D        &kp ESC                                           &kp TAB         M_CURSOR_L    M_CURSOR_D        M_CURSOR_R    XXXXX         XXXXX
     // ├───────────────┼─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &win_shutdown   XXXXX             &sk LALT         &sk LCTRL        &sk LSHFT        CANCEL           _____              _____         XXXXX            M_BUTTON_4    M_BUTTON_5        XXXXX         XXXXX         XXXXX
+         &win_shutdown   XXXXX             &sk LALT         &sk LCTRL        &sk LSHFT        CANCEL           _____              _____         M_BUTTON_R       M_BUTTON_4    M_BUTTON_5        XXXXX         XXXXX         XXXXX
     // ╰───────────────┴─────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
-                                           XXXXX            XXXXX            _____            M_BUTTON_L       _____              _____         M_BUTTON_R       _____         XXXXX             XXXXX
+                                           XXXXX            XXXXX            _____            M_BUTTON_L       _____              _____         _____            _____         XXXXX             XXXXX
     //                                   ╰────────────────┴────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
@@ -413,11 +474,11 @@ ZMK_LAYER_3(sys,
     // ╭───────────────┬─────────────────┬────────────────┬───────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
          XXXXX           XXXXX             XXXXX            XXXXX               XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &bootloader     &kp C_PREV        &kp C_PP         &kp C_NEXT          &kp C_REPEAT     &kp C_SHUFFLE                                     XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
+         &bootloader     &prev_rw          &pp_s            &nxt_ff             REPEAT           SHUFFLE                                           XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          &bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 3     &bt BT_SEL 2        &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       &win_restart
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &sys_reset      &win_shutdown     XXXXX            &ext_power EP_TOG   _____            CANCEL           _____              _____         EFF_FW           EFF_BCK       PURPLE            XXXXX         XXXXX         &sys_reset
+         &sys_reset      &win_shutdown     &vol_dn_mu       &ext_power EP_TOG   VOL_U            CANCEL           _____              _____         EFF_FW           EFF_BCK       PURPLE            XXXXX         XXXXX         &sys_reset
     // ╰───────────────┴─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
                                            XXXXX            XXXXX               _____            _____            _____              _____         _____            _____         XXXXX             XXXXX
     //                                   ╰────────────────┴───────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
