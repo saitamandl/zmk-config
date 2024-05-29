@@ -46,20 +46,28 @@
 
 /** VoLume */
 #define VOL_U       &kp C_VOL_UP
-#define VOL_D       &kp C_VOL_DN
-#define VOL_MU      &kp C_MUTE
+//#define VOL_D       &kp C_VOL_DN
+//#define VOL_MU      &kp C_MUTE
+/** tap: Play/Pause | long-tap: Stop */
+#define VOL_DN_MU   &vol_media C_MUTE C_VOL_DN
 
 /** Media */
-#define PP          &kp C_PP
-#define STOP        &kp C_STOP
-#define PREV        &kp C_PREV
-#define NEXT        &kp C_NEXT
+//#define PP          &kp C_PP
+//#define STOP        &kp C_STOP
+//#define PREV        &kp C_PREV
+//#define NEXT        &kp C_NEXT
 #define REPEAT      &kp C_REPEAT
 #define SHUFFLE     &kp C_SHUFFLE
-#define FF          &kp C_FF
-#define RW          &kp C_RW
+//#define FF          &kp C_FF
+//#define RW          &kp C_RW
 #define SLOW        &kp C_SLOW
 
+/** tap: Play/Pause | long-tap: Stop */
+#define PP_S        &vol_media C_STOP C_PP
+/** tap: Next | long-tap: Fast Forward */
+#define nxt_ff      &vol_media C_FF C_NEXT
+/** tap: Next | long-tap: Fast Forward */
+#define prev_rw     &vol_media C_RW C_PREV
 
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
@@ -236,46 +244,13 @@ ZMK_MACRO(dot_spc,
 
 
 /**
- * tap: volume down | long-tap: volume mute/unmute
+ * tap  | long-tap
  */
-ZMK_HOLD_TAP(vol_dn_mu,
+ZMK_HOLD_TAP(vol_media,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <VOL_MU>, <VOL_D>;
-)
-
-
-/**
- * tap: Play/Pause | long-tap: Stop
- */
-ZMK_HOLD_TAP(pp_s,
-    flavor = "balanced";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <STOP>, <PP>;
-)
-
-
-/**
- * tap: Next | long-tap: Fast Forward
- */
-ZMK_HOLD_TAP(nxt_ff,
-    flavor = "balanced";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <FF>, <NEXT>;
-)
-
-
-/**
- * tap: Next | long-tap: Fast Forward
- */
-ZMK_HOLD_TAP(prev_rw,
-    flavor = "balanced";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <RW>, <PREV>;
+    bindings = <&kp>, <&kp>;
 )
 
 
@@ -474,11 +449,11 @@ ZMK_LAYER_3(sys,
     // ╭───────────────┬─────────────────┬────────────────┬───────────────────┬────────────────┬────────────────╮                                ╭────────────────┬─────────────┬─────────────────┬─────────────┬─────────────┬─────────────╮
          XXXXX           XXXXX             XXXXX            XXXXX               XXXXX            XXXXX                                             XXXXX            XXXXX         XXXXX             XXXXX         XXXXX         XXXXX
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &bootloader     &prev_rw 0 0      &pp_s 0 0        &nxt_ff 0 0         REPEAT           SHUFFLE                                           XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
+         &bootloader     PREV_RW            PP_S            NXT_FF              REPEAT           SHUFFLE                                           XXXXX            SP_INC        SP_DEC            SAT_INC       SAT_INC       &bootloader
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┤                                ├────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
          &bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 3     &bt BT_SEL 2        &bt BT_SEL 1     &bt BT_SEL 0                                      LED_TOG          BRI_INC       BRI_DEC           HUE_INC       HUE_DEC       &win_restart
     // ├───────────────┼─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────╮    ╭─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
-         &sys_reset      &win_shutdown     &vol_dn_mu 0 0   &ext_power EP_TOG   VOL_U            CANCEL           _____              _____         EFF_FW           EFF_BCK       PURPLE            XXXXX         XXXXX         &sys_reset
+         &sys_reset      &win_shutdown     VOL_DN_MU        &ext_power EP_TOG   VOL_U            CANCEL           _____              _____         EFF_FW           EFF_BCK       PURPLE            XXXXX         XXXXX         &sys_reset
     // ╰───────────────┴─────────────────┼────────────────┼───────────────────┼────────────────┼────────────────┼─────────────┤    ├─────────────┼────────────────┼─────────────┼─────────────────┼─────────────┼─────────────┴─────────────╯
                                            XXXXX            XXXXX               _____            _____            _____              _____         _____            _____         XXXXX             XXXXX
     //                                   ╰────────────────┴───────────────────┴────────────────┴────────────────┴─────────────╯    ╰─────────────┴────────────────┴─────────────┴─────────────────┴─────────────╯
