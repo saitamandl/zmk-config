@@ -71,7 +71,7 @@
 
 /** Game layer */
 #define Y_V             &tap_preferred  V       Y
-#define G_H_B           &tap_preferred  B       g_h
+#define G_H_B           &tap_preferred  B       &g_h
 #define F_SPC           &tap_preferred  SPACE   F
 #define R_T             &tap_preferred  T       R
 #define N2_4            &tap_preferred  N4      N2
