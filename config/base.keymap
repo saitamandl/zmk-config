@@ -70,12 +70,12 @@
 #define PREV_RW     &tap_preferred C_RW C_PREV
 
 /** Game layer */
-#define Y_V             &tap_preferred  V       Y
-#define G_H_B           &tap_preferred  B       &g_h
-#define F_SPC           &tap_preferred  SPACE   F
-#define R_T             &tap_preferred  T       R
-#define N2_4            &tap_preferred  N4      N2
-#define CTRL_M_ESC_TAB  &ctrl_m_esc_    TAB     0
+#define Y_V             &hold_preferred     V       Y
+#define G_H_B           &hold_preferred     B       &g_h
+#define F_SPC           &hold_preferred     SPACE   F
+#define R_T             &hold_preferred     T       R
+#define N2_4            &hold_preferred     N4      N2
+#define CTRL_M_ESC_TAB  &ctrl_m_esc_        TAB     0
 
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
@@ -205,10 +205,21 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 
 /**
- * home-row-mods
+ * tap-preferred for media and volume
  */
 ZMK_HOLD_TAP(tap_preferred,
     flavor = "tap-preferred";
+    tapping-term-ms = <HRM_TAPPING_TERM_MS>;
+    quick-tap-ms = <HRM_QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+)
+
+
+/**
+ * hold-preferred for game
+ */
+ZMK_HOLD_TAP(hold_preferred,
+    flavor = "hold-preferred";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
     quick-tap-ms = <HRM_QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
@@ -292,10 +303,10 @@ ZMK_TAP_DANCE(num_dance,
  * tap: CTRL | double-tap: CTRL | triple-tap: ESC| long-tap: tab
  */
 ZMK_HOLD_TAP(ctrl_m_esc_,
-    flavor = "tap-preferred";
+    flavor = "hold-preferred";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
     quick-tap-ms = <HRM_QUICK_TAP_MS>;
-    bindings = <&mo>, <&ctrl_m_esc>;
+    bindings = <&kp>, <&ctrl_m_esc>;
 )
 
 /** tap: CTRL | double-tap: CTRL | triple-tap: ESC */
@@ -491,11 +502,11 @@ ZMK_LAYER_3(game,
     // ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────────┬───────────────────────╮                                           ╭────────────────────┬──────────────────┬──────────────┬─────────────┬────────────────┬──────────╮
          XXXXX         XXXXX         XXXXX         XXXXX          XXXXX            XXXXX                                                               XXXXX                XXXXX              XXXXX          XXXXX         XXXXX            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                           ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp N1         &kp Q         &kp W          &kp E           R_T                                                                 &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
+         XXXXX         &kp N3         &kp Q         &kp W          &kp E           R_T                                                                 &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                           ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         N2_4          &kp A         &kp S          &kp D            F_SPC                                                               &hmr TAB H           &hmr RSHFT J       &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp N3        G_H_B         &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
+         XXXXX         &kp N1        G_H_B         &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
                                      XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               CTRL_M_ESC_TAB        _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
