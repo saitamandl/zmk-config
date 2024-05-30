@@ -71,7 +71,7 @@
 
 /** Game layer */
 #define Y_V             &tap_preferred  V       Y
-#define G_H             &tap_preferred  H       G
+#define G_H_B           &tap_preferred  B       g_h
 #define F_SPC           &tap_preferred  SPACE   F
 #define R_T             &tap_preferred  T       R
 #define N2_4            &tap_preferred  N4      N2
@@ -305,6 +305,13 @@ ZMK_TAP_DANCE(ctrl_m_esc,
 )
 
 
+/** tap: G | double-tap: H */
+ZMK_TAP_DANCE(g_h,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&kp G>, <&kp H>;
+)
+
+
 /**
  * tap: copy | double-tap: cut | long_hold: paste
  */
@@ -488,7 +495,7 @@ ZMK_LAYER_3(game,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                           ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         N2_4          &kp A         &kp S          &kp D            F_SPC                                                               &hmr TAB H           &hmr RSHFT J       &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp N3        G_H           &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
+         XXXXX         &kp N3        G_H_B         &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
                                      XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               CTRL_M_ESC_TAB        _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
