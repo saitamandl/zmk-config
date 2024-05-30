@@ -220,11 +220,13 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 /** right-split HRMs */
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
+
 /** tap: sticky left shift | double tap: capsword */
 ZMK_MOD_MORPH(cs_shft,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
+
 
 /**
  * tap: space | shift + tap: dot -> space -> sticky shift | hold/long-tap: activate layer
@@ -288,7 +290,7 @@ ZMK_HOLD_TAP(n_num_wrd,
 
 /** tap: num-word | double-tap: sticky num-layer */
 ZMK_TAP_DANCE(num_dance,
-        tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
@@ -313,6 +315,13 @@ ZMK_HOLD_TAP(ccp,
 ZMK_TAP_DANCE(copy_cut,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
+)
+
+
+/** tap: capsword | double-tap: sys layer */
+ZMK_TAP_DANCE(cwrd_sys,
+        tapping-term-ms = <TAPPING_TERM_MS>;
+bindings = <&caps_word>, <&tog SYS>;
 )
 
 
@@ -360,7 +369,7 @@ ZMK_MACRO(win_restart,
  * Layers Keymap
  */
  /** Activate SYS layer by holding NUM and FNG*/
-ZMK_CONDITIONAL_LAYER(MOUSE FNG, SYS)
+//ZMK_CONDITIONAL_LAYER(MOUSE FNG, SYS)
 
 
 /** Default QWERTY */
@@ -374,7 +383,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭──────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V            &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE             &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├──────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &caps_word       &n_num_wrd NAV 0        &lt FNG RET           &bspc_delete MOUSE 0   &dot_space GAME 0    &ccp LS(INS) 0     XXXXX          XXXXX
+                                     XXXXX         XXXXX          &cwrd_sys       &n_num_wrd NAV 0        &lt FNG RET           &dot_space MOUSE 0     &bspc_delete GAME 0  &ccp LS(INS) 0     XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰──────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
