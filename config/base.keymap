@@ -75,7 +75,7 @@
 #define F_SPC           &tap_preferred  SPACE   F
 #define R_T             &tap_preferred  T       R
 #define N2_4            &tap_preferred  N4      N2
-#define CTRL_ESC_TAB    &ctrl_esc_      TAB     0
+#define CTRL_M_ESC_TAB  &ctrl_m_esc_    TAB     0
 
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
@@ -291,15 +291,15 @@ ZMK_TAP_DANCE(num_dance,
 /**
  * tap: CTRL | double-tap: CTRL | triple-tap: ESC| long-tap: tab
  */
-ZMK_HOLD_TAP(ctrl_esc_,
+ZMK_HOLD_TAP(ctrl_m_esc_,
     flavor = "tap-preferred";
     tapping-term-ms = <HRM_TAPPING_TERM_MS>;
     quick-tap-ms = <HRM_QUICK_TAP_MS>;
-    bindings = <&mo>, <&ctrl_esc>;
+    bindings = <&mo>, <&ctrl_m_esc>;
 )
 
 /** tap: CTRL | double-tap: CTRL | triple-tap: ESC */
-ZMK_TAP_DANCE(ctrl_esc,
+ZMK_TAP_DANCE(ctrl_m_esc,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&kp LCTRL>, <&kp M>, <&kp ESC>;
 )
@@ -490,7 +490,7 @@ ZMK_LAYER_3(game,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp N3        G_H           &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               CTRL_ESC_TAB          _____                 _____                _____              XXXXX          XXXXX
+                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               CTRL_M_ESC_TAB        _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
