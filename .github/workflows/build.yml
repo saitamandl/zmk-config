@@ -6,7 +6,7 @@ on:
     paths:
       - "config/*.keymap"
       - "config/*.dtsi"
-      - ".github/workflows/*.yml"
+      - ".github/workflows/build.yml"
 
 jobs:
   build:
