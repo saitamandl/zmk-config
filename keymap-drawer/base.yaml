@@ -8,11 +8,11 @@ layers:
     - [{type: held}, Z, X, C, V, {h: "$$material:block$$", t: B}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
     - {type: held}
     - {type: held}
-    - "$$material:keyboard_capslock_badge$$"
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$"}
     - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$"}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$"}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$"}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$"}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$"}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$"}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$"}
     - {type: held}
     - {type: held}
@@ -24,11 +24,11 @@ layers:
     - [{type: held}, {t: Z, type: ghost}, {t: ";", s: ":"}, {t: "[", s: "{"}, {t: "`", s: "~"}, "$$material:block$$", {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, {t: N, type: ghost}, {t: "/", s: "?"}, {t: "]", s: "}"}, {t: "'", s: "$$mdi:format-quote-close$$"}, {t: "/", s: "?", type: ghost}, {type: held}]
     - {type: held}
     - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", type: ghost}
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
     - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
     - {type: held}
     - {type: held}
@@ -40,11 +40,11 @@ layers:
     - [{type: held}, Ä, ẞ, €, {t: "V", type: ghost}, "$$material:block$$", {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, {t: N, type: ghost}, Ü, {t: ",", s: "<", type: ghost}, Ö, {t: "/", s: "?", type: ghost}, {type: held}]
     - {type: held}
     - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", type: ghost}
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
     - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
     - {type: held}
     - {type: held}
@@ -56,11 +56,11 @@ layers:
     - [{type: held}, {t: "z", type: ghost}, {t: "x", type: ghost}, "$$material:left_panel_close$$", "$$material:right_panel_close$$", "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:expand_circle_down$$"}, {t: M, type: ghost}, {t: ",", s: "<", type: ghost}, {t: ".", s: ">", type: ghost}, {t: Ins}, {type: held}]
     - {type: held}
     - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", type: ghost}
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
     - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
     - {type: held}
     - {type: held}
@@ -72,11 +72,11 @@ layers:
     - [{t: "$$material:power_settings_new$$"}, {t: "z", type: ghost}, {t: Alt}, {t: Ctrl}, {t: Shift}, "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:menu$$"}, {t: "$$material:arrow_back$$"}, {t: "$$material:arrow_forward$$"}, {type: held}, {type: held}, {type: held}]
     - {type: held}
     - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", type: ghost}
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
     - {t: "$$material:left_click$$"}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
     - {type: held}
     - {type: held}
@@ -88,11 +88,11 @@ layers:
     - [{t: "$$material:reset_settings$$"}, {type: held}, {h: "$$material:no_sound$$", t: "$$material:volume_down$$"}, "$$material:legend_toggle$$", {t: "$$material:volume_up$$"}, "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "EFF_F"}, {t: "EFF_B"}, {t: ":$$material:palette$$"}, {type: held}, {type: held}, {t: "$$material:reset_settings$$"}]
     - {type: held}
     - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", type: ghost}
+    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
     - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
     - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
     - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
     - {type: held}
     - {type: held}
@@ -103,11 +103,11 @@ layers:
     - [{type: held}, 3, {h: H, t: G}, X, C, {h: V, t: Y}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
     - {type: held}
     - {type: held}
-    - "$$material:keyboard_capslock_badge$$"
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$"}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$"}
-    - {h: "$$material:mouse$$", t: "$$material:backspace$$"}
-    - {h: "$$material:sports_esports$$", t: "$$material:space_bar$$"}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$"}
+    - {t: "$$material:mouse$$"}
+    - {t: Shift}
+    - {h: "Esc", t: "Ctrl"}
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
     - {type: held}
     - {type: held}
