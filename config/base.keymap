@@ -109,13 +109,13 @@
 #define THUMBS LH0 LH1 LH2 LH3 LH4 RH0 RH1 RH2 RH3 RH4
 
 /** Layer Names */
-#define BASE    0
-#define NUM     1
-#define FNG     2
-#define NAV     3
-#define MOUSE   4
-#define SYS     5
-#define GAME    6
+#define DEF         0
+#define NUM_SYM     1
+#define FN_GER      2
+#define NAV         3
+#define MOUSE       4
+#define SYS         5
+#define GAME        6
 
 /** LED strip length for RGB */
 &led_strip {
@@ -148,8 +148,8 @@
 
 /** num-word, requires PR #1451 */
 &num_word {
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL SEMI LBKT GRAVE BSLH RBKT SQT>;
+    layers = <NUM_SYM>;
+    continue-list = <BSPC DEL LSHFT LCTRL LALT LGUI RSHFT RCTRL RALT RGUI EXCL AT HASH DOLLAR PERCENT CARET AMPS STAR LPAR RPAR EQUAL PLUS MINUS UNDER FSLH QMARK BSLH PIPE SEMI COLON SQT DQT COMMA LT DOT GT LBKT LBRC RBKT RBRC GRAVE TILDE>;
 };
 
 
@@ -297,7 +297,7 @@ ZMK_HOLD_TAP(n_num_wrd,
 /** tap: num-word | double-tap: sticky num-layer */
 ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+    bindings = <&num_word>, <&sl NUM_SYM>;  // reverse this for sticky-num on single tap
 )
 
 
@@ -437,12 +437,12 @@ ZMK_MACRO(win_restart,
 /**
  * Layers Keymap
  */
- /** Activate SYS layer by holding NUM and FNG*/
-//ZMK_CONDITIONAL_LAYER(MOUSE FNG, SYS)
+ /** Activate SYS layer by holding NUM_SYM and FN_GER*/
+//ZMK_CONDITIONAL_LAYER(MOUSE FN_GER, SYS)
 
 
 /** Default QWERTY */
-ZMK_LAYER_3(base,
+ZMK_LAYER_3(def,
     // ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────────┬───────────────────────╮                                            ╭────────────────────┬──────────────────┬──────────────┬─────────────┬────────────────┬──────────╮
          XXXXX         XXXXX         XXXXX         XXXXX          XXXXX            XXXXX                                                                XXXXX                XXXXX              XXXXX          XXXXX         XXXXX            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                            ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
@@ -452,7 +452,7 @@ ZMK_LAYER_3(base,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭──────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp Z         &kp X         &kp C          &kp V            &hml K_CANCEL B         &kp C_MUTE            &kp C_MUTE             &kp N                &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├──────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          &cwrd_sys       &n_num_wrd NAV 0        &lt FNG RET           &dot_space MOUSE 0     &bspc_delete GAME 0  &ccp LS(INS) 0     XXXXX          XXXXX
+                                     XXXXX         XXXXX          &cwrd_sys       &n_num_wrd NAV 0        &lt FN_GER RET         &dot_space MOUSE 0     &bspc_delete GAME 0  &ccp LS(INS) 0     XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰──────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
@@ -460,7 +460,7 @@ ZMK_LAYER_3(base,
 
 
 /** Number and Symbols */
-ZMK_LAYER_3(num,
+ZMK_LAYER_3(num_sym,
     // ╭─────────────┬──────────────┬──────────────┬───────────────┬───────────────┬─────────────╮                                ╭─────────────┬───────────────┬─────────────────┬──────────────┬──────────────┬─────────────╮
          _____         _____          _____          _____           _____           _____                                          _____         _____           _____             _____          _____          _____
     // ├─────────────┼──────────────┼──────────────┼───────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼──────────────┼──────────────┼─────────────┤
@@ -478,7 +478,7 @@ ZMK_LAYER_3(num,
 
 
 /** Function Keys and German characters */
-ZMK_LAYER_3(fng,
+ZMK_LAYER_3(fn_ger,
     // ╭──────────────┬──────────────┬──────────────┬──────────────┬───────────────┬─────────────╮                                ╭─────────────┬───────────────┬─────────────────┬───────────────┬──────────────┬─────────────╮
          _____          _____          _____          _____          _____           _____                                          _____         _____           _____             _____           _____          _____
     // ├──────────────┼──────────────┼──────────────┼──────────────┼───────────────┼─────────────┤                                ├─────────────┼───────────────┼─────────────────┼───────────────┼──────────────┼─────────────┤
@@ -578,7 +578,7 @@ ZMK_LAYER_3(game,
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         XXXXX         G_H_B         &kp X          &c_3             Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          N1_2_4         &kp LSHFT               M_ESC_CTRL            _____                 _____                _____              XXXXX          XXXXX
+                                     XXXXX         XXXXX          N1_2_4           &kp LSHFT               M_ESC_CTRL            _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
