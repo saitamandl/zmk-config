@@ -303,9 +303,9 @@ ZMK_TAP_DANCE(num_dance,
  * tap: CTRL | double-tap: CTRL | triple-tap: ESC| long-tap: tab
  */
 ZMK_HOLD_TAP(ctrl_m_esc_,
-    flavor = "hold-preferred";
-    tapping-term-ms = <HRM_TAPPING_TERM_MS>;
-    quick-tap-ms = <HRM_QUICK_TAP_MS>;
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&ctrl_m_esc>;
 )
 
@@ -352,8 +352,8 @@ ZMK_TAP_DANCE(copy_cut,
 
 /** tap: capsword | double-tap: sys layer */
 ZMK_TAP_DANCE(cwrd_sys,
-        tapping-term-ms = <TAPPING_TERM_MS>;
-bindings = <&caps_word>, <&tog SYS>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&caps_word>, <&tog SYS>;
 )
 
 
