@@ -71,7 +71,7 @@
 
 /** Game layer */
 #define Y_V             &hold_preferred     V       Y
-#define G_H_B           &hold_preferred     B       &g_h
+#define G_H_B           &g_h_               B       0
 #define F_SPC           &hold_preferred     SPACE   F
 #define R_T             &hold_preferred     T       R
 #define N2_4            &hold_preferred     N4      N2
@@ -315,6 +315,16 @@ ZMK_TAP_DANCE(ctrl_m_esc,
     bindings = <&kp LCTRL>, <&kp M>, <&kp ESC>;
 )
 
+
+/**
+ * tap: copy | double-tap: cut | long_hold: paste
+ */
+ZMK_HOLD_TAP(g_h_,
+    flavor = "balanced";
+    tapping-term-ms = <HRM_TAPPING_TERM_MS>;
+    quick-tap-ms = <HRM_QUICK_TAP_MS>;
+    bindings = <&kp>, <&g_h>;
+)
 
 /** tap: G | double-tap: H */
 ZMK_TAP_DANCE(g_h,
