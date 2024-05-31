@@ -75,7 +75,7 @@
 #define F_SPC           &hold_preferred     SPACE   F
 #define R_T             &hold_preferred     T       R
 #define N2_4            &hold_preferred     N4      N2
-#define CTRL_M_ESC_TAB  &ctrl_m_esc_        TAB     0
+#define M_ESC_CTRL      &m_esc_             CTRL    0
 
 /** RGB behaviors */
 #define LED_TOG     &rgb_ug RGB_TOG
@@ -302,17 +302,17 @@ ZMK_TAP_DANCE(num_dance,
 /**
  * tap: CTRL | double-tap: CTRL | triple-tap: ESC| long-tap: tab
  */
-ZMK_HOLD_TAP(ctrl_m_esc_,
+ZMK_HOLD_TAP(m_esc_,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&ctrl_m_esc>;
+    bindings = <&kp>, <&m_esc>;
 )
 
 /** tap: CTRL | double-tap: CTRL | triple-tap: ESC */
-ZMK_TAP_DANCE(ctrl_m_esc,
+ZMK_TAP_DANCE(m_esc,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LCTRL>, <&kp M>, <&kp ESC>;
+    bindings = <&kp M>, <&kp ESC>;
 )
 
 
@@ -512,13 +512,13 @@ ZMK_LAYER_3(game,
     // ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────────┬───────────────────────╮                                           ╭────────────────────┬──────────────────┬──────────────┬─────────────┬────────────────┬──────────╮
          XXXXX         XXXXX         XXXXX         XXXXX          XXXXX            XXXXX                                                               XXXXX                XXXXX              XXXXX          XXXXX         XXXXX            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                           ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
-         XXXXX         &kp N3         &kp Q         &kp W          &kp E           R_T                                                                 &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
+         &kp TAB       &kp N3         &kp Q         &kp W          &kp E           R_T                                                                 &kp Y                &kp U              &kp I          &kp O         &kp P            XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┤                                           ├────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         N2_4          &kp A         &kp S          &kp D            F_SPC                                                               &hmr TAB H           &hmr RSHFT J       &hmr RCTRL K   &hmr RALT L   &hmr RGUI SEMI   XXXXX
     // ├─────────────┼─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────╮    ╭─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┼──────────┤
          XXXXX         &kp N1        G_H_B         &kp X          &kp C            Y_V                     &kp C_MUTE            &kp C_MUTE            &hmr K_CANCEL N      &kp M              &kp COMMA      &kp DOT       &kp FSLH         XXXXX
     // ╰─────────────┴─────────────┼─────────────┼──────────────┼────────────────┼───────────────────────┼────────────────┤    ├─────────────────────┼────────────────────┼──────────────────┼──────────────┼─────────────┼────────────────┴──────────╯
-                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               CTRL_M_ESC_TAB        _____                 _____                _____              XXXXX          XXXXX
+                                     XXXXX         XXXXX          M_BUTTON_M       &kp LSHFT               M_ESC_CTRL            _____                 _____                _____              XXXXX          XXXXX
     //                             ╰─────────────┴──────────────┴────────────────┴───────────────────────┴────────────────╯    ╰─────────────────────┴────────────────────┴──────────────────┴──────────────┴─────────────╯
     ,
     &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
