@@ -2,112 +2,112 @@ layout:
   qmk_keyboard: splitkb/aurora/sofle_v2/rev1
 layers:
   BASE:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{type: held}, Q, W, E, R, T, Y, U, I, O, P, {type: held}]
-    - [{type: held}, {h: Gui, t: A}, {h: Alt, t: S}, {h: Ctrl, t: D}, {h: Shift, t: F}, {h: Esc, t: G}, {h: Tab, t: H}, {h: Shift, t: J}, {h: Ctrl, t: K}, {h: Alt, t: L}, {h: Gui, t: ";", s: ":"}, {type: held}]
-    - [{type: held}, Z, X, C, V, {h: "$$material:block$$", t: B}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$"}
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$"}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$"}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$"}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$"}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$"}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, Q, W, E, R, T, Y, U, I, O, P, { type: held } ]
+    - [ { type: held }, { h: Gui, t: A }, { h: Alt, t: S }, { h: Ctrl, t: D }, { h: Shift, t: F }, { h: Esc, t: G }, { h: Tab, t: H }, { h: Shift, t: J }, { h: Ctrl, t: K }, { h: Alt, t: L }, { h: Gui, t: ";", s: ":" }, { type: held } ]
+    - [ { type: held }, Z, X, C, V, { h: "$$material:block$$", t: B }, { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, N, M, { t: ",", s: "<" }, { t: ".", s: ">" }, { t: "/", s: "?" }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$" }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$" }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$" }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$" }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$" }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$" }
+    - { type: held }
+    - { type: held }
 
   NUM:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{type: held}, {t: Q, type: ghost}, {t: W, type: ghost}, {t: "$$mdi:minus-thick$$", s: "$$material:border_color$$"}, {t: R, type: ghost}, {t: T, type: ghost}, {t: Y, type: ghost}, {t: "\\", s: "|"}, {t: "=", s: "+"}, {t: O, type: ghost}, {t: P, type: ghost}, {type: held}]
-    - [{type: held}, {h: Gui, t: 5, s: "%"}, {h: Alt, t: 4, s: "$"}, {h: Ctrl, t: 3, s: "#"}, {h: Shift, t: 2, s: "@"}, {h: Esc, t: 1, s: "!"}, {h: Tab, t: 6, s: "^"}, {h: Shift, t: 7, s: "&"}, {h: Ctrl, t: 8, s: "*"}, {h: Alt, t: 9, s: "("}, {h: Gui, t: 0, s: ")"}, {type: held}]
-    - [{type: held}, {t: Z, type: ghost}, {t: ";", s: ":"}, {t: "[", s: "{"}, {t: "`", s: "~"}, "$$material:block$$", {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, {t: N, type: ghost}, {t: "/", s: "?"}, {t: "]", s: "}"}, {t: "'", s: "$$mdi:format-quote-close$$"}, {t: "/", s: "?", type: ghost}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { t: Q, type: ghost }, { t: W, type: ghost }, { t: "$$mdi:minus-thick$$", s: "$$material:border_color$$" }, { t: R, type: ghost }, { t: T, type: ghost }, { t: Y, type: ghost }, { t: "\\", s: "|" }, { t: "=", s: "+" }, { t: O, type: ghost }, { t: P, type: ghost }, { type: held } ]
+    - [ { type: held }, { h: Gui, t: 5, s: "%" }, { h: Alt, t: 4, s: "$" }, { h: Ctrl, t: 3, s: "#" }, { h: Shift, t: 2, s: "@" }, { h: Esc, t: 1, s: "!" }, { h: Tab, t: 6, s: "^" }, { h: Shift, t: 7, s: "&" }, { h: Ctrl, t: 8, s: "*" }, { h: Alt, t: 9, s: "(" }, { h: Gui, t: 0, s: ")" }, { type: held } ]
+    - [ { type: held }, { t: Z, type: ghost }, { t: ";", s: ":" }, { t: "[", s: "{" }, { t: "`", s: "~" }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, { t: "/", s: "?" }, { t: "]", s: "}" }, { t: "'", s: "$$mdi:format-quote-close$$" }, { t: "/", s: "?", type: ghost }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
 
   FNG:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [F13, F14, F15, F16, F17, F18, F19, F20 , F21, F22, F23, F24]
-    - [F1, {h: Gui, t: F2}, {h: Alt, t: F3}, {h: Ctrl, t: F4}, {h: Shift, t: F5}, {h: Esc, t: F6}, {h: Tab, t: F7}, {h: Shift, t: F8}, {h: Ctrl, t: F9}, {h: Alt, t: F10}, {h: Gui, t: F11}, F12]
-    - [{type: held}, Ä, ẞ, €, {t: "V", type: ghost}, "$$material:block$$", {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, {t: N, type: ghost}, Ü, {t: ",", s: "<", type: ghost}, Ö, {t: "/", s: "?", type: ghost}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ F13, F14, F15, F16, F17, F18, F19, F20 , F21, F22, F23, F24 ]
+    - [ F1, { h: Gui, t: F2 }, { h: Alt, t: F3 }, { h: Ctrl, t: F4 }, { h: Shift, t: F5 }, { h: Esc, t: F6 }, { h: Tab, t: F7 }, { h: Shift, t: F8 }, { h: Ctrl, t: F9 }, { h: Alt, t: F10 }, { h: Gui, t: F11 }, F12 ]
+    - [ { type: held }, Ä, ẞ, €, { t: "V", type: ghost }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, Ü, { t: ",", s: "<", type: ghost }, Ö, { t: "/", s: "?", type: ghost }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
 
   NAV:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{type: held}, {t: Q, type: ghost}, {t: W, type: ghost}, {t: "$$material:keyboard_tab_rtl$$"},  {t: "$$material:select_window_2$$"}, {t: "$$material:reset_wrench$$"}, {t: "$$material:expand_circle_up$$"}, {h: "$$material:text_select_move_forward_word$$", t: "$$mdi:backspace-outline$$"} , {h: "$$material:text_select_move_up$$", t: "$$material:keyboard_arrow_up$$"}, {h: "$$material:text_select_move_back_word$$", t: "$$mdi:backspace-reverse-outline$$"}, {t: "$$material:screenshot_monitor$$"}, {type: held}]
-    - [{type: held}, {t: Gui}, {t: Alt}, {t: Ctrl}, {t: Shift}, {t: Esc}, {t: Tab}, {h: "$$material:text_select_jump_to_beginning$$", t: "$$material:keyboard_arrow_left$$"}, {h: "$$material:text_select_move_down$$", t: "$$material:keyboard_arrow_down$$"}, {h: "$$material:text_select_jump_to_end$$", t: "$$material:keyboard_arrow_right$$"}, {h: Gui, t: ";", s: ":", type: ghost}, {type: held}]
-    - [{type: held}, {t: "z", type: ghost}, {t: "x", type: ghost}, "$$material:left_panel_close$$", "$$material:right_panel_close$$", "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:expand_circle_down$$"}, {t: M, type: ghost}, {t: ",", s: "<", type: ghost}, {t: ".", s: ">", type: ghost}, {t: Ins}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { t: Q, type: ghost }, { t: W, type: ghost }, { t: "$$material:keyboard_tab_rtl$$" },  { t: "$$material:select_window_2$$" }, { t: "$$material:reset_wrench$$" }, { t: "$$material:expand_circle_up$$" }, { h: "$$material:text_select_move_forward_word$$", t: "$$mdi:backspace-outline$$" } , { h: "$$material:text_select_move_up$$", t: "$$material:keyboard_arrow_up$$" }, { h: "$$material:text_select_move_back_word$$", t: "$$mdi:backspace-reverse-outline$$" }, { t: "$$material:screenshot_monitor$$" }, { type: held } ]
+    - [ { type: held }, { t: Gui }, { t: Alt }, { t: Ctrl }, { t: Shift }, { t: Esc }, { t: Tab }, { h: "$$material:text_select_jump_to_beginning$$", t: "$$material:keyboard_arrow_left$$" }, { h: "$$material:text_select_move_down$$", t: "$$material:keyboard_arrow_down$$" }, { h: "$$material:text_select_jump_to_end$$", t: "$$material:keyboard_arrow_right$$" }, { h: Gui, t: ";", s: ":", type: ghost }, { type: held } ]
+    - [ { type: held }, { t: "z", type: ghost }, { t: "x", type: ghost }, "$$material:left_panel_close$$", "$$material:right_panel_close$$", "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:expand_circle_down$$" }, { t: M, type: ghost }, { t: ",", s: "<", type: ghost }, { t: ".", s: ">", type: ghost }, { t: Ins }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
 
   MOUSE:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{t: "$$mdi:restart$$"}, {type: held}, {type: held}, {t: "$$material:keyboard_double_arrow_up$$"}, {type: held}, {t: "$$material:mouse$$"}, {type: held}, {type: held} , {t: "$$material:arrow_drop_up$$"}, {type: held}, {type: held}, {type: held}]
-    - [{type: held}, {t: Gui}, {t: "$$material:keyboard_double_arrow_left$$"}, {t: "$$material:keyboard_double_arrow_down$$"}, {t: "$$material:keyboard_double_arrow_right$$"}, {t: Esc}, {t: Tab}, {t: "$$material:arrow_left$$"}, {t: "$$material:arrow_drop_down$$"}, {t: "$$material:arrow_right$$"}, {type: held}, {type: held}]
-    - [{t: "$$material:power_settings_new$$"}, {t: "z", type: ghost}, {t: Alt}, {t: Ctrl}, {t: Shift}, "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:menu$$"}, {t: "$$material:arrow_back$$"}, {t: "$$material:arrow_forward$$"}, {type: held}, {type: held}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
-    - {t: "$$material:left_click$$"}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { type: held }, { type: held }, { t: "$$material:keyboard_double_arrow_up$$" }, { type: held }, { t: "$$material:mouse$$" }, { type: held }, { type: held } , { t: "$$material:arrow_drop_up$$" }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { t: Gui }, { t: "$$material:keyboard_double_arrow_left$$" }, { t: "$$material:keyboard_double_arrow_down$$" }, { t: "$$material:keyboard_double_arrow_right$$" }, { t: Esc }, { t: Tab }, { t: "$$material:arrow_left$$" }, { t: "$$material:arrow_drop_down$$" }, { t: "$$material:arrow_right$$" }, { type: held }, { type: held } ]
+    - [ { type: held }, { t: "z", type: ghost }, { t: Alt }, { t: Ctrl }, { t: Shift }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:menu$$" }, { t: "$$material:arrow_back$$" }, { t: "$$material:arrow_forward$$" }, { type: held }, { type: held }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
+    - { t: "$$material:left_click$$" }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
 
   SYS:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{t: "$$mdi:progress-download$$"}, {h: "$$material:fast_rewind$$", t: "$$material:skip_previous$$"}, {h: "$$material:stop$$", t: "$$material:play_pause$$"}, {h: "$$material:fast_forward$$", t: "$$material:skip_next$$"},  {t: "$$material:repeat$$"}, {t: "$$material:shuffle$$"}, {type: held}, {t: "$$material:shutter_speed_add$$"} , {t: "$$material:shutter_speed_minus$$"}, {t: "SAT_U"}, {t: "SAT_D"}, {t: "$$mdi:progress-download$$"}]
-    - [{t: "$$material:bluetooth_disabled$$"}, {t: "$$material:ink_eraser_off$$"}, {t: "$$material:bluetooth$$"}, {t: "$$material:bluetooth$$"}, {t: "$$material:bluetooth$$"}, {t: "$$material:bluetooth$$"}, {t: "$$material:backlight_high_off$$"}, {t: "$$material:backlight_high$$"}, {t: "$$material:backlight_low$$"}, {t: "$$material:shadow_add$$"}, {t: "$$material:shadow_minus$$"}, {type: held}]
-    - [{t: "$$material:reset_settings$$"}, {type: held}, {h: "$$material:no_sound$$", t: "$$material:volume_down$$"}, "$$material:legend_toggle$$", {t: "$$material:volume_up$$"}, "$$material:block$$", {t: "$$material:volume_off$$", type: ghost}, {t: "$$material:volume_off$$", type: ghost}, {t: "EFF_F"}, {t: "EFF_B"}, {t: ":$$material:palette$$"}, {type: held}, {type: held}, {t: "$$material:reset_settings$$"}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost}
-    - {h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost}
-    - {h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost}
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost}
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost}
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { t: "$$mdi:progress-download$$" }, { h: "$$material:fast_rewind$$", t: "$$material:skip_previous$$" }, { h: "$$material:stop$$", t: "$$material:play_pause$$" }, { h: "$$material:fast_forward$$", t: "$$material:skip_next$$" },  { t: "$$material:repeat$$" }, { t: "$$material:shuffle$$" }, { type: held }, { type: held }, { type: held }, { t: "$$mdi:restart$$" }, { t: "$$material:power_settings_new$$" }, { t: "$$mdi:progress-download$$" } ]
+    - [ { t: "$$material:bluetooth_disabled$$" }, { t: "$$material:ink_eraser_off$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { t: "$$material:reset_settings$$" }, { type: held }, { h: "$$material:no_sound$$", t: "$$material:volume_down$$" }, "$$material:legend_toggle$$", { t: "$$material:volume_up$$" }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { t: "$$material:reset_settings$$" } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost }
+    - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
   GAME:
-    - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{t: Tab}, 3, Q, W, E, {h: T, t: R}, Y, U, I, O, P, {type: held}]
-    - [{type: held}, {h: 4, t: 2}, A, S, D, {h: "$$material:space_bar$$", t: F}, {h: Tab, t: H}, {h: Shift, t: J}, {h: Ctrl, t: K}, {h: Alt, t: L}, {h: Gui, t: ";", s: ":"}, {type: held}]
-    - [{type: held}, 1, {h: B, t: G, s: H}, X, C, {h: V, t: Y}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
-    - {type: held}
-    - {type: held}
-    - {t: "$$material:mouse$$"}
-    - {t: Shift}
-    - {h: Ctrl, t: M, s: Esc}
-    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
-    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
-    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
-    - {type: held}
-    - {type: held}
+    - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
+    - [ { t: Tab }, 3, Q, W, E, { h: T, t: R }, Y, U, I, O, P, { type: held } ]
+    - [ { type: held }, { h: 4, t: 2 }, A, S, D, { h: "$$material:space_bar$$", t: F }, { h: Tab, t: H }, { h: Shift, t: J }, { h: Ctrl, t: K }, { h: Alt, t: L }, { h: Gui, t: ";", s: ":" }, { type: held } ]
+    - [ { type: held }, 1, { h: B, t: G, s: H }, X, C, { h: V, t: Y }, { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, N, M, { t: ",", s: "<" }, { t: ".", s: ">" }, { t: "/", s: "?" }, { type: held } ]
+    - { type: held }
+    - { type: held }
+    - { t: "$$material:mouse$$" }
+    - { t: Shift }
+    - { h: Ctrl, t: M, s: Esc }
+    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - { type: held }
+    - { type: held }
