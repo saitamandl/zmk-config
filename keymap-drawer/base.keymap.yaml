@@ -98,9 +98,9 @@ layers:
     - { type: held }
   GAME:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ { t: Tab }, 3, Q, W, E, { h: T, t: R }, Y, U, I, O, P, { type: held } ]
-    - [ { type: held }, { h: 4, t: 2 }, A, S, D, { h: "$$material:space_bar$$", t: F }, { h: Tab, t: H }, { h: Shift, t: J }, { h: Ctrl, t: K }, { h: Alt, t: L }, { h: Gui, t: ";", s: ":" }, { type: held } ]
-    - [ { type: held }, 1, { h: B, t: G, s: H }, X, C, { h: V, t: Y }, { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, N, M, { t: ",", s: "<" }, { t: ".", s: ">" }, { t: "/", s: "?" }, { type: held } ]
+    - [ { t: Tab }, { t: Tab }, Q, W, E, { h: T, t: R }, Y, U, I, O, P, { type: held } ]
+    - [ { h: 4, t: 2 }, 1, A, S, D, { h: "$$material:space_bar$$", t: F }, { h: Tab, t: H }, { h: Shift, t: J }, { h: Ctrl, t: K }, { h: Alt, t: L }, { h: Gui, t: ";", s: ":" }, { type: held } ]
+    - [ { type: held }, 3, { h: B, t: G, s: H }, X, C, { h: V, t: Y }, { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, N, M, { t: ",", s: "<" }, { t: ".", s: ">" }, { t: "/", s: "?" }, { type: held } ]
     - { type: held }
     - { type: held }
     - { t: "$$material:mouse$$" }
