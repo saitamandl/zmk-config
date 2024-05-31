@@ -19,6 +19,7 @@
 /** Constants */
 #define QUICK_TAP_MS                175
 #define TAPPING_TERM_MS             200
+#define TAP_DANCE_TAPPING_TERM_MS   250
 #define MT_CORE_TAPPING_TERM_MS     220
 #define MT_CORE_QUICK_TAP_MS        220
 #define HRM_QUICK_TAP_MS            125
@@ -295,7 +296,7 @@ ZMK_HOLD_TAP(n_num_wrd,
 
 /** tap: num-word | double-tap: sticky num-layer */
 ZMK_TAP_DANCE(num_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
@@ -312,7 +313,7 @@ ZMK_HOLD_TAP(m_esc_,
 
 /** tap: CTRL | double-tap: CTRL | triple-tap: ESC */
 ZMK_TAP_DANCE(m_esc,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp M>, <&kp ESC>;
 )
 
@@ -329,7 +330,7 @@ ZMK_HOLD_TAP(g_h_,
 
 /** tap: G | double-tap: H */
 ZMK_TAP_DANCE(g_h,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp G>, <&kp H>;
 )
 
@@ -346,7 +347,7 @@ ZMK_HOLD_TAP(n1_2_,
 
 /** tap: 1 | double-tap: 2 */
 ZMK_TAP_DANCE(n1_2,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp N1>, <&kp N2>;
 )
 
@@ -355,7 +356,7 @@ ZMK_TAP_DANCE(n1_2,
  * tap: C | double-tap: 3
  */
 ZMK_TAP_DANCE(c_3,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp C>, <&kp N3>;
 )
 
@@ -364,7 +365,7 @@ ZMK_TAP_DANCE(c_3,
  * tap: F | double-tap: Space
  */
 ZMK_TAP_DANCE(f_space,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp F>, <&kp SPACE>;
 )
 
@@ -381,14 +382,14 @@ ZMK_HOLD_TAP(ccp,
 
 /** tap: copy | double-tap: cut */
 ZMK_TAP_DANCE(copy_cut,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
 
 /** tap: capsword | double-tap: sys layer */
 ZMK_TAP_DANCE(cwrd_sys,
-    tapping-term-ms = <TAPPING_TERM_MS>;
+    tapping-term-ms = <TAP_DANCE_TAPPING_TERM_MS>;
     bindings = <&caps_word>, <&tog SYS>;
 )
 
