@@ -35,8 +35,8 @@ layers:
 
   FNG:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ F13, F14, F15, F16, F17, F18, F19, F20 , F21, F22, F23, F24 ]
-    - [ F1, { h: Gui, t: F2 }, { h: Alt, t: F3 }, { h: Ctrl, t: F4 }, { h: Shift, t: F5 }, { h: Esc, t: F6 }, { h: Tab, t: F7 }, { h: Shift, t: F8 }, { h: Ctrl, t: F9 }, { h: Alt, t: F10 }, { h: Gui, t: F11 }, F12 ]
+    - [ F18, F17, F16, F15, F14, F13, F19, F20 , F21, F22, F23, F24 ]
+    - [ F6 , { h: Gui, t: F5 }, { h: Alt, t: F4 }, { h: Ctrl, t: F3 }, { h: Shift, t: F2 }, { h: Esc, t: F1 }, { h: Tab, t: F7 }, { h: Shift, t: F8 }, { h: Ctrl, t: F9 }, { h: Alt, t: F10 }, { h: Gui, t: F11 }, F12 ]
     - [ { type: held }, Ä, ẞ, €, { t: "V", type: ghost }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, Ü, { t: ",", s: "<", type: ghost }, Ö, { t: "/", s: "?", type: ghost }, { type: held } ]
     - { type: held }
     - { type: held }
