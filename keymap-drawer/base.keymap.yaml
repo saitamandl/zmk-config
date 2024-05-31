@@ -98,16 +98,16 @@ layers:
     - {type: held}
   GAME:
     - [{type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}, {type: held}]
-    - [{type: held}, 1, Q, W, E, R, Y, U, I, O, P, {type: held}]
-    - [{type: held}, 2, A, S, D, F, {h: Tab, t: H}, {h: Shift, t: J}, {h: Ctrl, t: K}, {h: Alt, t: L}, {h: Gui, t: ";", s: ":"}, {type: held}]
-    - [{type: held}, 3, {h: H, t: G}, X, C, {h: V, t: Y}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
+    - [{t: Tab}, 3, Q, W, E, {h: T, t: R}, Y, U, I, O, P, {type: held}]
+    - [{type: held}, {h: 4, t: 2}, A, S, D, {h: "$$material:space_bar$$", t: F}, {h: Tab, t: H}, {h: Shift, t: J}, {h: Ctrl, t: K}, {h: Alt, t: L}, {h: Gui, t: ";", s: ":"}, {type: held}]
+    - [{type: held}, 1, {h: B, t: G, s: H}, X, C, {h: V, t: Y}, {t: "$$material:volume_off$$", type: held}, {t: "$$material:volume_off$$", type: held}, N, M, {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, {type: held}]
     - {type: held}
     - {type: held}
     - {t: "$$material:mouse$$"}
     - {t: Shift}
-    - {h: "Esc", t: "Ctrl"}
-    - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
-    - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
-    - { h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
+    - {h: Ctrl, t: M, s: Esc}
+    - {h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
+    - {h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
+    - {h: "$$material:content_paste$$", t: "$$material:content_copy$$", s: "$$material:content_cut$$", type: ghost }
     - {type: held}
     - {type: held}
