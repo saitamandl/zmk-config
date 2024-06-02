@@ -19,7 +19,7 @@
 /** Constants */
 #define QUICK_TAP_MS                175
 #define TAPPING_TERM_MS             200
-#define TAP_DANCE_TAPPING_TERM_MS   250
+#define TAP_DANCE_TAPPING_TERM_MS   300
 #define MT_CORE_TAPPING_TERM_MS     220
 #define MT_CORE_QUICK_TAP_MS        220
 #define HRM_QUICK_TAP_MS            125
