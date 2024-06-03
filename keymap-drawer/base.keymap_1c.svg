@@ -36,6 +36,9 @@
 <svg id="material:border_color">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M80 0v-121h800V0H80Zm140-301h44l391-391-22-22-22-22-391 391v44Zm-60 60v-128l494-494q9-9 20-13t22-4q11 0 22.5 4t19.5 13l44 44q9 8 13.5 19.5T800-777q0 11-4.5 22T782-735L288-241H160Zm576-537-41-41 41 41Zm-81 86-22-22-22-22 44 44Z"/></svg>
 </svg>
+<svg id="material:computer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M40-120v-60h880v60H40Zm100-120q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h680q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H140v480Zm0 0v-480 480Z"/></svg>
+</svg>
 <svg id="material:content_copy">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M300-200q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h440q24 0 42 18t18 42v560q0 24-18 42t-42 18H300Zm0-60h440v-560H300v560ZM180-80q-24 0-42-18t-18-42v-620h60v620h500v60H180Zm120-180v-560 560Z"/></svg>
 </svg>
@@ -62,6 +65,9 @@
 </svg>
 <svg id="material:function">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M402-240v-60h59l121-139-121-141h-74l-71 366q-8 45-34 69.5T215-120q-41 0-68.5-24T119-204q0-27 15-43.5t39-16.5q21 0 34.5 12t13.5 32q0 11-4.5 20.5T204-184q4 2 8.5 3t9.5 1q13 0 22-12.5t13-32.5l69-355H200v-60h137l21-106q9-45 36-69.5t67-24.5q41 0 67.5 24t26.5 60q0 27-15 43.5T501-696q-20 0-34-11.5T453-738q0-10 4-19.5t10-15.5q-2-2-6-3.5t-8-1.5q-13 0-22.5 12T417-735l-18 95h189v60h-47l83 96 78-96h-48v-60h186v60h-58L662-439l120 139h58v60H654v-60h48l-80-93-82 93h48v60H402Z"/></svg>
+</svg>
+<svg id="material:indeterminate_check_box">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M250-452h461v-60H250v60Zm-70 332q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>
 </svg>
 <svg id="material:ink_eraser_off">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M813-61 605-269 503-160H179l-81-84q-18-17-17.5-41.5T97-327l216-234L61-813l43-43 752 752-43 43ZM206-220h274l83-91-209-209-212 234 64 66Zm482-138-42-42 158-172-207-217-161 179-41-41 160-174q16-17 40.57-17 24.56 0 41.43 17l205 215q17 17 18 42t-16 42L688-358ZM541-505Zm-82 89Z"/></svg>
@@ -104,9 +110,6 @@
 </svg>
 <svg id="material:left_panel_close">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M663-344v-272L527-480l136 136ZM180-120q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h600q24.75 0 42.38 17.62Q840-804.75 840-780v600q0 24.75-17.62 42.37Q804.75-120 780-120H180Zm147-60v-600H180v600h147Zm60 0h393v-600H387v600Zm-60 0H180h147Z"/></svg>
-</svg>
-<svg id="material:legend_toggle">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-200v-60h640v60H160Zm0-170v-60h640v60H160Zm0-174v-71l240-145 200 142 200-142v75L600-544 397-688 160-544Z"/></svg>
 </svg>
 <svg id="material:manufacturing">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m229-496-6-49q-20-5-37.5-14.5T154-583l-44 18-30-49 37-35q-5-20-5-39t5-39l-37-35 30-49 44 18q14-14 31.5-23.5T223-831l6-49h60l6 49q20 5 37.5 14.5T364-793l44-18 30 49-38 35q5 19 5 38.5t-5 39.5l38 35-30 49-44-18q-14 15-31.5 24T295-545l-6 49h-60Zm30-100q38 0 65-27t27-65q0-38-27-65t-65-27q-38 0-65 27t-27 65q0 38 27 65t65 27ZM644-40l-14-57q-27-7-51.5-21T536-154l-54 17-38-65 42-38q-8-26-8-54t8-54l-42-37 38-65 54 15q19-21 43-35.5t51-20.5l14-57h75l14 57q29 4 52.5 19t42.5 37l54-15 38 65-42 37q8 26 8 54t-8 54l42 38-38 66-54-18q-18 23-42.5 36.5T733-97l-14 57h-75Zm38-115q58 0 98.5-40.5T821-294q0-58-40.5-98.5T682-433q-58 0-98.5 40.5T543-294q0 58 40.5 98.5T682-155Z"/></svg>
@@ -332,8 +335,8 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 }</style>
-<g transform="translate(30, 0)" class="layer-BASE">
-<text x="0" y="28" class="label">BASE:</text>
+<g transform="translate(30, 0)" class="layer-DEFAULT">
+<text x="0" y="28" class="label">DEFAULT:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 63)" class="key held keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
@@ -577,8 +580,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 398)" class="layer-NUMSYM">
-<text x="0" y="28" class="label">NUMSYM:</text>
+<g transform="translate(30, 398)" class="layer-NUMS">
+<text x="0" y="28" class="label">NUMS:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 63)" class="key held keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
@@ -621,7 +624,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(84, 119)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Euro</text>
+<text x="0" y="0" class="key tap">€</text>
 </g>
 <g transform="translate(140, 91)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -653,12 +656,12 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(700, 84)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">)</text>
+</g>
+<g transform="translate(756, 91)" class="key keypos-21">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">=</text>
 <text x="0" y="-24" class="key shifted">+</text>
-</g>
-<g transform="translate(756, 91)" class="key ghost keypos-21">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
-<text x="0" y="0" class="key ghost tap">O</text>
 </g>
 <g transform="translate(812, 119)" class="key ghost keypos-22">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
@@ -740,8 +743,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(140, 203)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">;</text>
-<text x="0" y="-24" class="key shifted">:</text>
+<text x="0" y="0" class="key tap">,</text>
+<text x="0" y="-24" class="key shifted">&lt;</text>
 </g>
 <g transform="translate(196, 196)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -750,8 +753,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(252, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">,</text>
-<text x="0" y="-24" class="key shifted">&lt;</text>
+<text x="0" y="0" class="key tap">;</text>
+<text x="0" y="-24" class="key shifted">:</text>
 </g>
 <g transform="translate(308, 210)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -771,18 +774,18 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(644, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
-<text x="0" y="-24" class="key shifted">&gt;</text>
+<text x="0" y="0" class="key tap">&#x27;</text>
+<use href="#mdi:format-quote-close" xlink:href="#mdi:format-quote-close" x="-5" y="-24" height="10" width="10.0" class="key shifted glyph mdi:format-quote-close"/>
 </g>
 <g transform="translate(700, 196)" class="key keypos-46">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">]</text>
 <text x="0" y="-24" class="key shifted">}</text>
 </g>
-<g transform="translate(756, 203)" class="key keypos-47">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&#x27;</text>
-<use href="#mdi:format-quote-close" xlink:href="#mdi:format-quote-close" x="-5" y="-24" height="10" width="10.0" class="key shifted glyph mdi:format-quote-close"/>
+<g transform="translate(756, 203)" class="key ghost keypos-47">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
+<text x="0" y="0" class="key ghost tap">.</text>
+<text x="0" y="-24" class="key ghost shifted">&gt;</text>
 </g>
 <g transform="translate(812, 231)" class="key ghost keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
@@ -837,8 +840,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 795)" class="layer-FNGER">
-<text x="0" y="28" class="label">FNGER:</text>
+<g transform="translate(30, 795)" class="layer-FNG">
+<text x="0" y="28" class="label">FNG:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 63)" class="key held keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
@@ -993,9 +996,9 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ẞ</text>
 </g>
-<g transform="translate(196, 196)" class="key keypos-39">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">€</text>
+<g transform="translate(196, 196)" class="key ghost keypos-39">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
+<text x="0" y="0" class="key ghost tap">V</text>
 </g>
 <g transform="translate(252, 203)" class="key ghost keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
@@ -1125,13 +1128,13 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(28, 119)" class="key held keypos-12">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 </g>
-<g transform="translate(84, 119)" class="key ghost keypos-13">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
-<text x="0" y="0" class="key ghost tap">Q</text>
+<g transform="translate(84, 119)" class="key keypos-13">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#material:indeterminate_check_box" xlink:href="#material:indeterminate_check_box" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:indeterminate_check_box"/>
 </g>
-<g transform="translate(140, 91)" class="key ghost keypos-14">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
-<text x="0" y="0" class="key ghost tap">W</text>
+<g transform="translate(140, 91)" class="key keypos-14">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#material:reset_wrench" xlink:href="#material:reset_wrench" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:reset_wrench"/>
 </g>
 <g transform="translate(196, 84)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1143,7 +1146,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(308, 98)" class="key keypos-17">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#material:reset_wrench" xlink:href="#material:reset_wrench" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:reset_wrench"/>
+<use href="#material:computer" xlink:href="#material:computer" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:computer"/>
 </g>
 <g transform="translate(588, 98)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1681,12 +1684,11 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(140, 203)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#material:volume_down" xlink:href="#material:volume_down" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:volume_down"/>
-<use href="#material:no_sound" xlink:href="#material:no_sound" x="-6" y="12" height="12" width="12.0" class="key hold glyph material:no_sound"/>
+<use href="#material:no_sound" xlink:href="#material:no_sound" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:no_sound"/>
 </g>
 <g transform="translate(196, 196)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#material:legend_toggle" xlink:href="#material:legend_toggle" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:legend_toggle"/>
+<use href="#material:volume_down" xlink:href="#material:volume_down" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:volume_down"/>
 </g>
 <g transform="translate(252, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

@@ -19,9 +19,9 @@ layers:
 
   NUMSYM:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ { type: held }, { t: Euro }, { t: "$$mdi:minus-thick$$", s: "$$material:border_color$$" }, { t: "("}, { t: "/", s: "?" }, { t: "`", s: "~" }, { t: Y, type: ghost }, { t: "\\", s: "|" }, { t: "=", s: "+" }, { t: O, type: ghost }, { t: P, type: ghost }, { type: held } ]
+    - [ { type: held }, { t: € }, { t: "$$mdi:minus-thick$$", s: "$$material:border_color$$" }, { t: "("}, { t: "/", s: "?" }, { t: "`", s: "~" }, { t: Y, type: ghost }, { t: "\\", s: "|" }, { t: ")"}, { t: "=", s: "+" }, { t: P, type: ghost }, { type: held } ]
     - [ { type: held }, { h: Alt, t: 4, s: "$" }, { h: Ctrl, t: 3, s: "#" }, { h: Shift, t: 2, s: "@" }, { h: Esc, t: 1, s: "!" }, { h: Gui, t: 0}, { h: Gui, t: 5, s: "%" }, { h: Tab, t: 6, s: "^" }, { h: Shift, t: 7, s: "&" }, { h: Ctrl, t: 8, s: "*" }, { h: Alt, t: 9}, { type: held } ]
-    - [ { type: held }, { t: Z, type: ghost }, { t: ";", s: ":" }, { t: "[", s: "{" }, { t: ",", s: "<" }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, { t: ".", s: ">" }, { t: "]", s: "}" }, { t: "'", s: "$$mdi:format-quote-close$$" }, { t: "/", s: "?", type: ghost }, { type: held } ]
+    - [ { type: held }, { t: Z, type: ghost }, { t: ",", s: "<" }, { t: "[", s: "{" }, { t: ";", s: ":" }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, { t: "'", s: "$$mdi:format-quote-close$$" }, { t: "]", s: "}" }, { t: ".", s: ">", type: ghost }, { t: "/", s: "?", type: ghost }, { type: held } ]
     - { type: held }
     - { type: held }
     - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
@@ -37,7 +37,7 @@ layers:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
     - [ F18, F17, F16, F15, F14, F13, F19, F20 , F21, F22, F23, F24 ]
     - [ F6 , { h: Gui, t: F5 }, { h: Alt, t: F4 }, { h: Ctrl, t: F3 }, { h: Shift, t: F2 }, { h: Esc, t: F1 }, { h: Tab, t: F7 }, { h: Shift, t: F8 }, { h: Ctrl, t: F9 }, { h: Alt, t: F10 }, { h: Gui, t: F11 }, F12 ]
-    - [ { type: held }, Ä, ẞ, €, { t: "V", type: ghost }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, Ü, { t: ",", s: "<", type: ghost }, Ö, { t: "/", s: "?", type: ghost }, { type: held } ]
+    - [ { type: held }, Ä, ẞ, { t: V, type: ghost }, { t: "V", type: ghost }, "$$material:block$$", { t: "$$material:volume_off$$", type: held }, { t: "$$material:volume_off$$", type: held }, { t: N, type: ghost }, Ü, { t: ",", s: "<", type: ghost }, Ö, { t: "/", s: "?", type: ghost }, { type: held } ]
     - { type: held }
     - { type: held }
     - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
@@ -51,7 +51,7 @@ layers:
 
   NAV:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ { type: held }, { t: Q, type: ghost }, { t: W, type: ghost }, { t: "$$material:keyboard_tab_rtl$$" },  { t: "$$material:select_window_2$$" }, { t: "$$material:reset_wrench$$" }, { t: "$$material:expand_circle_up$$" }, { h: "$$material:text_select_move_forward_word$$", t: "$$mdi:backspace-outline$$" } , { h: "$$material:text_select_move_up$$", t: "$$material:keyboard_arrow_up$$" }, { h: "$$material:text_select_move_back_word$$", t: "$$mdi:backspace-reverse-outline$$" }, { t: "$$material:screenshot_monitor$$" }, { type: held } ]
+    - [ { type: held }, { t: "$$material:indeterminate_check_box$$" }, { t: "$$material:reset_wrench$$" }, { t: "$$material:keyboard_tab_rtl$$" },  { t: "$$material:select_window_2$$" }, { t: "$$material:computer$$" }, { t: "$$material:expand_circle_up$$" }, { h: "$$material:text_select_move_forward_word$$", t: "$$mdi:backspace-outline$$" } , { h: "$$material:text_select_move_up$$", t: "$$material:keyboard_arrow_up$$" }, { h: "$$material:text_select_move_back_word$$", t: "$$mdi:backspace-reverse-outline$$" }, { t: "$$material:screenshot_monitor$$" }, { type: held } ]
     - [ { type: held }, { t: Gui }, { t: Alt }, { t: Ctrl }, { t: Shift }, { t: Esc }, { t: Tab }, { h: "$$material:text_select_jump_to_beginning$$", t: "$$material:keyboard_arrow_left$$" }, { h: "$$material:text_select_move_down$$", t: "$$material:keyboard_arrow_down$$" }, { h: "$$material:text_select_jump_to_end$$", t: "$$material:keyboard_arrow_right$$" }, { h: Gui, t: ";", s: ":", type: ghost }, { type: held } ]
     - [ { type: held }, { t: "z", type: ghost }, { t: "x", type: ghost }, "$$material:left_panel_close$$", "$$material:right_panel_close$$", "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:expand_circle_down$$" }, { t: M, type: ghost }, { t: ",", s: "<", type: ghost }, { t: ".", s: ">", type: ghost }, { t: Ins }, { type: held } ]
     - { type: held }
@@ -85,7 +85,7 @@ layers:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
     - [ { t: "$$mdi:progress-download$$" }, { h: "$$material:fast_rewind$$", t: "$$material:skip_previous$$" }, { h: "$$material:stop$$", t: "$$material:play_pause$$" }, { h: "$$material:fast_forward$$", t: "$$material:skip_next$$" },  { t: "$$material:repeat$$" }, { t: "$$material:shuffle$$" }, { type: held }, { type: held }, { type: held }, { t: "$$mdi:restart$$" }, { t: "$$material:power_settings_new$$" }, { t: "$$mdi:progress-download$$" } ]
     - [ { t: "$$material:bluetooth_disabled$$" }, { t: "$$material:ink_eraser_off$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { t: "$$material:bluetooth$$" }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ { t: "$$material:reset_settings$$" }, { type: held }, { h: "$$material:no_sound$$", t: "$$material:volume_down$$" }, "$$material:legend_toggle$$", { t: "$$material:volume_up$$" }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { t: "$$material:reset_settings$$" } ]
+    - [ { t: "$$material:reset_settings$$" }, { type: held }, { t: "$$material:no_sound$$" }, "$$material:volume_down$$", { t: "$$material:volume_up$$" }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { t: "$$material:reset_settings$$" } ]
     - { type: held }
     - { type: held }
     - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
