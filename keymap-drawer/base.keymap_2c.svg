@@ -1375,8 +1375,9 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#material:keyboard_double_arrow_up" xlink:href="#material:keyboard_double_arrow_up" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:keyboard_double_arrow_up"/>
 </g>
-<g transform="translate(252, 91)" class="key held keypos-16">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(252, 91)" class="key keypos-16">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#material:left_click" xlink:href="#material:left_click" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:left_click"/>
 </g>
 <g transform="translate(308, 98)" class="key keypos-17">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1385,8 +1386,9 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(588, 98)" class="key held keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 </g>
-<g transform="translate(644, 91)" class="key held keypos-19">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(644, 91)" class="key keypos-19">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<use href="#material:menu" xlink:href="#material:menu" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:menu"/>
 </g>
 <g transform="translate(700, 84)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1449,9 +1451,8 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(28, 231)" class="key held keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 </g>
-<g transform="translate(84, 231)" class="key ghost keypos-37">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
-<text x="0" y="0" class="key ghost tap">z</text>
+<g transform="translate(84, 231)" class="key held keypos-37">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 </g>
 <g transform="translate(140, 203)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1477,9 +1478,8 @@ path.combo { stroke: #7f7f7f; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
 <use href="#material:volume_off" xlink:href="#material:volume_off" x="-7" y="-7" height="14" width="14.0" class="key ghost tap glyph material:volume_off"/>
 </g>
-<g transform="translate(588, 210)" class="key keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#material:menu" xlink:href="#material:menu" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:menu"/>
+<g transform="translate(588, 210)" class="key held keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 </g>
 <g transform="translate(644, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1509,9 +1509,10 @@ path.combo { stroke: #7f7f7f; }
 <use href="#material:keyboard_capslock_badge" xlink:href="#material:keyboard_capslock_badge" x="-7" y="-7" height="14" width="14.0" class="key ghost tap glyph material:keyboard_capslock_badge"/>
 <use href="#material:manufacturing" xlink:href="#material:manufacturing" x="-5" y="-24" height="10" width="10.0" class="key ghost shifted glyph material:manufacturing"/>
 </g>
-<g transform="translate(316, 274) rotate(22.5)" class="key keypos-53">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#material:left_click" xlink:href="#material:left_click" x="-7" y="-7" height="14" width="14.0" class="key tap glyph material:left_click"/>
+<g transform="translate(316, 274) rotate(22.5)" class="key ghost keypos-53">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key ghost"/>
+<use href="#material:filter_3" xlink:href="#material:filter_3" x="-7" y="-7" height="14" width="14.0" class="key ghost tap glyph material:filter_3"/>
+<use href="#material:assistant_navigation" xlink:href="#material:assistant_navigation" x="-6" y="12" height="12" width="12.0" class="key ghost hold glyph material:assistant_navigation"/>
 </g>
 <g transform="translate(378, 291) rotate(30.0)" class="key ghost keypos-54">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key ghost"/>

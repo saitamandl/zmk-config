@@ -67,13 +67,13 @@ layers:
 
   MOUSE:
     - [ { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held }, { type: held } ]
-    - [ { type: held }, { type: held }, { type: held }, { t: "$$material:keyboard_double_arrow_up$$" }, { type: held }, { t: "$$material:mouse$$" }, { type: held }, { type: held } , { t: "$$material:arrow_drop_up$$" }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { type: held }, { type: held }, { t: "$$material:keyboard_double_arrow_up$$" }, { t: "$$material:left_click$$" }, { t: "$$material:mouse$$" }, { type: held }, { t: "$$material:menu$$" }, { t: "$$material:arrow_drop_up$$" }, { type: held }, { type: held }, { type: held } ]
     - [ { type: held }, { t: Gui }, { t: Alt }, { t: Ctrl }, { t: Shift }, { t: Esc }, { t: Tab }, { t: "$$material:arrow_left$$" }, { t: "$$material:arrow_drop_down$$" }, { t: "$$material:arrow_right$$" }, { type: held }, { type: held } ]
-    - [ { type: held }, { t: "z", type: ghost }, { t: "$$material:keyboard_double_arrow_left$$" }, { t: "$$material:keyboard_double_arrow_down$$" }, { t: "$$material:keyboard_double_arrow_right$$" }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:menu$$" }, { t: "$$material:arrow_back$$" }, { t: "$$material:arrow_forward$$" }, { type: held }, { type: held }, { type: held } ]
+    - [ { type: held }, { type: held }, { t: "$$material:keyboard_double_arrow_left$$" }, { t: "$$material:keyboard_double_arrow_down$$" }, { t: "$$material:keyboard_double_arrow_right$$" }, "$$material:block$$", { t: "$$material:volume_off$$", type: ghost }, { t: "$$material:volume_off$$", type: ghost }, { type: held }, { t: "$$material:arrow_back$$" }, { t: "$$material:arrow_forward$$" }, { type: held }, { type: held }, { type: held } ]
     - { type: held }
     - { type: held }
     - { t: "$$material:keyboard_capslock_badge$$", s: "$$material:manufacturing$$", type: ghost }
-    - { t: "$$material:left_click$$" }
+    - { h: "$$material:assistant_navigation$$", t: "$$material:filter_3$$", type: ghost }
     - { h: "$$material:function$$", t: "$$material:keyboard_return$$", type: ghost }
     - { h: "$$material:mouse$$", t: "$$material:space_bar$$", type: ghost }
     - { h: "$$material:sports_esports$$", t: "$$material:backspace$$", type: ghost }
